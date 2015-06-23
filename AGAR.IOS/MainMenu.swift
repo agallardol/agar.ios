@@ -137,7 +137,7 @@ class MainMenu: SKScene {
                 println("Play Touch");
                 let scene = Playing(width: 2000, height: 2000);
                 var skView = self.view as SKView!
-                scene.scaleMode = SKSceneScaleMode.Fill;
+                scene.scaleMode = SKSceneScaleMode.AspectFill;
                 skView.presentScene(scene, transition: SKTransition.flipHorizontalWithDuration(1));
             }
         }

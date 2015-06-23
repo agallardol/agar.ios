@@ -28,7 +28,7 @@ class Circle : SKShapeNode
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.radius);
         self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.dynamic = true;
-
+        self.lineWidth = 2.0
     }
 
     required init?(coder aDecoder: NSCoder) {

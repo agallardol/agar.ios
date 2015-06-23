@@ -30,10 +30,9 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         self.anchorPoint = CGPointMake (0.5,0.5);
         
         //Initializing PlayerCircle
-        self.Player = PlayerCircle(frame: self.frame);
         
-        size.width *= 2;
-        size.height *= 2;
+        //size.width *= 2;
+        //size.height *= 2;
         self.World = SKShapeNode(rectOfSize: size);
         self.World!.name = "world";
         self.World?.position = CGPoint(x: self.frame.midX, y: self.frame.midY);
@@ -42,6 +41,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
 
         self.addChild(self.World!);
 
+        self.Player = PlayerCircle(world: self.World!);
         self.World!.addChild(self.Player!);
         // Initializing FeedCircles
 
@@ -52,8 +52,6 @@ class Playing: SKScene, SKPhysicsContactDelegate {
             self.World!.addChild(feed);
         
         }
-        self.Player?.JellyAnimation();
-
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -73,20 +71,8 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         
         for touch in (touches as! Set<UITouch>) {
             // Get the position that was touched (a.k.a. ending point).
-            let touchPosition = touch.locationInNode(self.World)
-            
-            // Get sprite's current position (a.k.a. starting point).
-            let currentPosition = Player!.position
-            
-            // Calculate the angle using the relative positions of the sprite and touch.
-            let angle = atan2(currentPosition.y - touchPosition.y, currentPosition.x - touchPosition.x)
-            
-            // Define actions for the ship to take.
-            let rotateAction = SKAction.rotateToAngle(angle + CGFloat(M_PI*0.5), duration: 0.0)
-            let moveAction = SKAction.moveTo(touchPosition, duration: 0.5)
-            
-            // Tell the ship to execute actions.
-            Player!.runAction(SKAction.sequence([rotateAction, moveAction]))
+            var touchPosition = touch.locationInNode(self.World);
+            self.Player?.Move(touchPosition)
         }
     }
 
