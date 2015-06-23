@@ -30,7 +30,7 @@ class GameTools
      struct PhysicsCategory {
         static let None      : UInt32 = 0
         static let Player       : UInt32 = 1
-        static let Feed   : UInt32 = 2       // 1
-        static let Enemy: UInt32 = 3     // 2
+        static let Enemy    : UInt32 = 2
+        static let Feed   : UInt32 = 3
     }
 }
