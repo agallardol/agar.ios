@@ -13,10 +13,10 @@ class GameTools
     let DefaultFeedRadius: CGFloat = 20.0;
     static func RandomPoint(bounds: CGRect)->CGPoint
     {
-        var mod = Int(arc4random()) % Int(CGRectGetMaxX(bounds));
+        var mod = Int(arc4random()) % Int(bounds.width);
         var xvalue = Int(bounds.minX) + mod;
         
-        mod = Int(arc4random()) % Int(CGRectGetMaxY(bounds));
+        mod = Int(arc4random()) % Int(bounds.height);
         var yvalue = Int(bounds.minY) + mod;
         return CGPoint(x: xvalue, y: yvalue);
     }
