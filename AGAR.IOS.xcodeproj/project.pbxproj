@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A8BADEA1B39B5F200CDBD89 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BADE91B39B5F200CDBD89 /* Enemy.swift */; };
 		C611DE811B2FCDCE00B6F863 /* Playing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611DE801B2FCDCE00B6F863 /* Playing.swift */; };
 		C611DE831B2FD2D600B6F863 /* FeedCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611DE821B2FD2D600B6F863 /* FeedCircle.swift */; };
 		C638E9AF1B2E6BB5009451BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C638E9AE1B2E6BB5009451BC /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A8BADE91B39B5F200CDBD89 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		C611DE801B2FCDCE00B6F863 /* Playing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playing.swift; sourceTree = "<group>"; };
 		C611DE821B2FD2D600B6F863 /* FeedCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCircle.swift; sourceTree = "<group>"; };
 		C638E9A91B2E6BB5009451BC /* AGAR.IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGAR.IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +106,7 @@
 				C611DE821B2FD2D600B6F863 /* FeedCircle.swift */,
 				C6DBB0591B305C570009C0E2 /* Circle.swift */,
 				C6DBB05B1B306B2D0009C0E2 /* PlayerCircle.swift */,
+				0A8BADE91B39B5F200CDBD89 /* Enemy.swift */,
 			);
 			path = AGAR.IOS;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				C6DBB0581B305A9B0009C0E2 /* GameTools.swift in Sources */,
 				C638E9B31B2E6BB5009451BC /* MainMenu.swift in Sources */,
 				C6DBB05C1B306B2D0009C0E2 /* PlayerCircle.swift in Sources */,
+				0A8BADEA1B39B5F200CDBD89 /* Enemy.swift in Sources */,
 				C611DE831B2FD2D600B6F863 /* FeedCircle.swift in Sources */,
 				C638E9B51B2E6BB5009451BC /* GameViewController.swift in Sources */,
 				C638E9AF1B2E6BB5009451BC /* AppDelegate.swift in Sources */,

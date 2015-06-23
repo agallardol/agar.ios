@@ -40,5 +40,10 @@ class Circle : SKShapeNode
         CGPathAddArc(path, nil, CGFloat(0.0), CGFloat(0.0), radius, CGFloat(0.0), CGFloat(2.0 * M_PI), true)
         return path;
     }
+    
+    static func getRandomColor() ->  UIColor
+    {
+        return UIColor(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1.0)
+    }
 
 }

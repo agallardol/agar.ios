@@ -14,11 +14,14 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     var currentScale: CGFloat = 1.0;
     let radiusMax: CGFloat = 120.0;
     let maxFontSize: CGFloat = 35;
+    let enemyQuantity: Int = 3
+    let feedQuantity: Int = 50
     
     var World: SKShapeNode? = nil;
     var Feeds: [FeedCircle] = [];
     
     var Player: PlayerCircle? = nil;
+    var Enemys: [Enemy] = []
     
     init(width: CGFloat, height: CGFloat) {
         var size = CGSize(width: width, height: height);
@@ -43,9 +46,17 @@ class Playing: SKScene, SKPhysicsContactDelegate {
 
         self.Player = PlayerCircle(world: self.World!);
         self.World!.addChild(self.Player!);
+        
+        //agregar enemigos
+        for i in 1..<enemyQuantity
+        {
+            var enemy: Enemy = Enemy(world: self.World!, player: self.Player!)
+            self.Enemys.append(enemy)
+            self.World!.addChild(enemy)
+        }
         // Initializing FeedCircles
 
-        for i in 1..<50
+        for i in 1..<feedQuantity
         {
             var feed: FeedCircle = FeedCircle(frame: self.World!.frame);
             self.Feeds.append(feed);
@@ -81,7 +92,6 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
         let firstNode = contact.bodyA.node as! SKShapeNode
         let secondNode = contact.bodyB.node as! SKShapeNode
-        println("Contacto");
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
@@ -92,10 +102,40 @@ class Playing: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
         
-        // 2
-        if ((firstBody.categoryBitMask & GameTools.PhysicsCategory.Player != 0) &&
-            (secondBody.categoryBitMask & GameTools.PhysicsCategory.Feed != 0)) {
-                (firstBody.node as! PlayerCircle).EatFeed(secondBody.node as! FeedCircle)
+        switch (firstBody.categoryBitMask)
+        {
+            case GameTools.PhysicsCategory.Player:
+                switch (secondBody.categoryBitMask)
+                {
+                    case GameTools.PhysicsCategory.Enemy:
+                        //logica choque player con enemy
+                        break
+                    case GameTools.PhysicsCategory.Feed:
+                        (firstBody.node as! PlayerCircle).EatFeed(secondBody.node as! FeedCircle)
+                        break
+                    
+                    default:
+                        break
+                }
+                break
+            
+            case GameTools.PhysicsCategory.Enemy:
+                switch (secondBody.categoryBitMask)
+                {
+                    case GameTools.PhysicsCategory.Enemy:
+                        //logica choque enemy con enemy
+                        break
+                    case GameTools.PhysicsCategory.Feed:
+                        (firstBody.node as! Enemy).EatFeed(secondBody.node as! FeedCircle)
+                        break
+                
+                    default:
+                        break
+                }
+                break
+            
+            default:
+                break
         }
     }
     override func update(currentTime: CFTimeInterval) {
