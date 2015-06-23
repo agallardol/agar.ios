@@ -36,7 +36,7 @@ class Enemy : Circle
     
     init(radius: CGFloat, world: SKShapeNode, player: SKShapeNode, fillColor: UIColor, strokeColor: UIColor)
     {
-        self.enemySpeed = PlayerCircle.MIN_PLAYER_SPEED;
+        self.enemySpeed = Enemy.MIN_ENEMY_SPEED;
         self.World = world
         self.Player = player
         
@@ -77,7 +77,15 @@ class Enemy : Circle
         randomPath.addCurveToPoint(target.position, controlPoint1: RandomPoint(frame), controlPoint2: RandomPoint(frame));
         return randomPath.CGPath;
     }
-    //peneeeee
+    
+    func GetRandomPath(frame: CGRect, source: SKShapeNode) -> CGPath
+    {
+        var randomPath: UIBezierPath = UIBezierPath();
+        randomPath.moveToPoint(source.position);
+        randomPath.addCurveToPoint(RandomPoint(frame), controlPoint1: RandomPoint(frame), controlPoint2: RandomPoint(frame));
+        return randomPath.CGPath;
+    }
+    
     func RandomPoint(bounds: CGRect)->CGPoint
     {
         var mod = Int(arc4random()) % Int(CGRectGetMaxX(bounds));
@@ -90,7 +98,24 @@ class Enemy : Circle
     
     func OnMoveEnemyEnd(frame: CGRect, source: SKShapeNode, target: SKShapeNode) -> Void
     {
-        var moveEnemy = SKAction.followPath( GetRandomPath(self.World!.frame, source: self, target: self.Player!), asOffset: false, orientToPath: true, duration: 8.0);
+        var moveEnemy : SKAction;
+        var duration : NSTimeInterval = Double(CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs((1 - 8) * Enemy.MAX_ENEMY_SIZE/self.radius) + min(1, 8))
+        println(duration)
+        if((self.Player as! PlayerCircle).radius > self.radius)
+        {
+            if(Playing.Feeds.count != 0)
+            {
+                moveEnemy = SKAction.followPath( GetRandomPath(self.World!.frame, source: self, target: Playing.Feeds.last!), asOffset: false, orientToPath: true, duration: duration)
+            }
+            else
+            {
+                moveEnemy = SKAction.followPath( GetRandomPath(self.World!.frame, source: self), asOffset: false, orientToPath: true, duration: duration)
+            }
+        }
+        else
+        {
+            moveEnemy = SKAction.followPath( GetRandomPath(self.World!.frame, source: self, target: self.Player!), asOffset: false, orientToPath: true, duration: duration)
+        }
         self.runAction(moveEnemy, completion: {self.OnMoveEnemyEnd(self.World!.frame, source: self, target: self.Player!)});
     }
     

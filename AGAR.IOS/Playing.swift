@@ -18,10 +18,10 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     let feedQuantity: Int = 50
     
     var World: SKShapeNode? = nil;
-    var Feeds: [FeedCircle] = [];
+    static var Feeds: [FeedCircle] = [];
     
     var Player: PlayerCircle? = nil;
-    var Enemys: [Enemy] = []
+    static var Enemys: [Enemy] = []
     
     init(width: CGFloat, height: CGFloat) {
         var size = CGSize(width: width, height: height);
@@ -51,7 +51,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         for i in 1..<enemyQuantity
         {
             var enemy: Enemy = Enemy(world: self.World!, player: self.Player!)
-            self.Enemys.append(enemy)
+            Playing.Enemys.append(enemy)
             self.World!.addChild(enemy)
         }
         // Initializing FeedCircles
@@ -59,7 +59,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         for i in 1..<feedQuantity
         {
             var feed: FeedCircle = FeedCircle(frame: self.World!.frame);
-            self.Feeds.append(feed);
+            Playing.Feeds.append(feed);
             self.World!.addChild(feed);
         
         }
