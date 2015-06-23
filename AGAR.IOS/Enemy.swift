@@ -77,7 +77,7 @@ class Enemy : Circle
         randomPath.addCurveToPoint(target.position, controlPoint1: RandomPoint(frame), controlPoint2: RandomPoint(frame));
         return randomPath.CGPath;
     }
-    //pene
+    //peneeeee
     func RandomPoint(bounds: CGRect)->CGPoint
     {
         var mod = Int(arc4random()) % Int(CGRectGetMaxX(bounds));
