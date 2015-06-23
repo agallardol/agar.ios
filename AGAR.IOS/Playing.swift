@@ -34,8 +34,8 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         
         //Initializing PlayerCircle
         
-        //size.width *= 2;
-        //size.height *= 2;
+        size.width *= 2;
+        size.height *= 2;
         self.World = SKShapeNode(rectOfSize: size);
         self.World!.name = "world";
         self.World?.position = CGPoint(x: self.frame.midX, y: self.frame.midY);
@@ -83,6 +83,8 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         for touch in (touches as! Set<UITouch>) {
             // Get the position that was touched (a.k.a. ending point).
             var touchPosition = touch.locationInNode(self.World);
+            debugPrintln("WORLD WORLD", self.World!.frame.minX, self.World!.frame.maxX)
+
             self.Player?.Move(touchPosition)
         }
     }

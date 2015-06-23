@@ -1,4 +1,4 @@
-//
+		//
 //  PlayerCircle.swift
 //  AGAR.IOS
 //
@@ -11,17 +11,19 @@ import SpriteKit
 class PlayerCircle : Circle
 {
     static let DEFAULT_PLAYER_SIZE: CGFloat = 40.0;
-    static let MIN_PLAYER_SPEED: CGFloat = 1;
+    static let MIN_PLAYER_SPEED: CGFloat = 5.0;
+    static let MAX_PLAYER_SPEED: CGFloat = 50.0
     static let MAX_PLAYER_SIZE: CGFloat = 1000;
     static let MAX_PLAYER_SIZE_USING_FEED: CGFloat = 200;
     static let FONT_LIMIT_SIZE: CGFloat = 40;
     static let DEFAULT_PLAYER_STROKE_COLOR: UIColor = UIColor(red: 236.0 / 255, green: 206.0 / 255, blue: 118.0 / 255, alpha: 1.0);
-    static let DEFAULT_PLAYER_FILL_COLOR: UIColor = UIColor(red: 86.0 / 255, green: 38.0 / 255, blue: 55.0 / 255, alpha: 1.0);    var playerSpeed: CGFloat;
+    static let DEFAULT_PLAYER_FILL_COLOR: UIColor = UIColor(red: 86.0 / 255, green: 38.0 / 255, blue: 55.0 / 255, alpha: 1.0);
     static let FEED_BONUS: CGFloat = 5.0;
     static let WIGGLE_ANIMATION_KEY: String = "wiggle"
     
     var World: SKShapeNode? = nil;
     var playerLabel: SKLabelNode? = nil;
+    var playerSpeed: CGFloat = PlayerCircle.MAX_PLAYER_SPEED
     convenience init(world: SKShapeNode)
     {
         self.init(radius: PlayerCircle.DEFAULT_PLAYER_SIZE, world: world, fillColor: PlayerCircle.DEFAULT_PLAYER_FILL_COLOR, strokeColor: PlayerCircle.DEFAULT_PLAYER_STROKE_COLOR);
@@ -35,7 +37,7 @@ class PlayerCircle : Circle
     init(radius: CGFloat, world: SKShapeNode, fillColor: UIColor, strokeColor: UIColor)
     {
         self.World = world
-        self.playerSpeed = PlayerCircle.MIN_PLAYER_SPEED;
+        self.playerSpeed = PlayerCircle.MAX_PLAYER_SPEED;
 
         super.init(radius: radius, position: GameTools.RandomPoint(world.frame))
         
@@ -107,21 +109,40 @@ class PlayerCircle : Circle
         
             // Get sprite's current position (a.k.a. starting point).
         let currentPosition = self.position
-
-        var x = min(self.World!.frame.maxX, touchPosition.x)
-        x = max(self.World!.frame.minX, touchPosition.x)
-        var y = min(self.World!.frame.maxY, touchPosition.y)
-        y = max(self.World!.frame.minY, touchPosition.y)
         
-        var newPosition:CGPoint = CGPoint(x: x, y: y)
-  
+        var xVect = touchPosition.x - currentPosition.x
+        var yVect = touchPosition.y - currentPosition.y
+        let norm = sqrt(pow(xVect, 2) + pow(yVect, 2)   )
+        
+        var normalizedVector: CGVector = CGVectorMake(xVect / norm,  yVect / norm)
+        
+        var dx = normalizedVector.dx*self.playerSpeed
+        var dy = normalizedVector.dy*self.playerSpeed
+        var newPosition:CGPoint = CGPoint(x: currentPosition.x + dx, y: currentPosition.y + dy)
+        
+        //debugPrintln(self.World!.position)
+        
+        debugPrintln(newPosition)
+        
+        if ((newPosition.x < -self.World!.frame.width / 2 && dx < 0) || (newPosition.x > self.World!.frame.width / 2  && dx > 0))
+        {
+            dx = 0;
+        }
+        if ((newPosition.y < -self.World!.frame.width / 2  && dy < 0) || (newPosition.y > self.World!.frame.width / 2  && dy > 0))
+        {
+            dy = 0;
+        }
+        
+        //var directionX: CGFloat = x / abs(x)
+        //var directionY: CGFloat = y / abs(y)
         // Calculate the angle using the relative positions of the sprite and touch.
-        let angle = atan2(currentPosition.y - newPosition.y, currentPosition.x - newPosition.x)
+        let angle = atan2(currentPosition.y - touchPosition.y, currentPosition.x - touchPosition.x)
             
         // Define actions for the ship to take.
         let rotateAction = SKAction.rotateToAngle(angle + CGFloat(M_PI*0.5), duration: 0.0)
-        let moveAction = SKAction.moveTo(newPosition, duration: 0.5)
-            
+        let moveAction =   SKAction.moveByX(dx, y: dy, duration: 0.0)
+
+
         // Tell the ship to execute actions.
         self.runAction(SKAction.sequence([rotateAction, moveAction]))
     }
