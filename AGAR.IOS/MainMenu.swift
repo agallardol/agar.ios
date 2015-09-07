@@ -123,7 +123,7 @@ class MainMenu: SKScene {
     }
     func OnMovePlayButtonEnd(frame: CGRect, button: SKShapeNode, circle: SKShapeNode) -> Void
     {
-        println(button.frame.width / 2);
+        //println(button.frame.width / 2);
         //var label = button.childNodeWithName("playButtonLabel") as! SKLabelNode;
         if ((button.frame.width / 2) < self.radiusMax)
         {
@@ -152,7 +152,7 @@ class MainMenu: SKScene {
         for touch in (touches as! Set<UITouch>) {
             let location = touch.locationInNode(self)
             var node = self.nodeAtPoint(location);
-            println(node.name);
+            //println(node.name);
             if(node.name == "playButton")
             {
                 println("Play Touch");
