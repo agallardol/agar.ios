@@ -103,7 +103,7 @@ class Enemy : Circle
         {
             if(Playing.Feeds.count != 0)
             {
-                moveEnemy = SKAction.followPath( GetRandomPath(self.World!.frame, source: self, target: Playing.Feeds.last!), asOffset: false, orientToPath: true, speed: self.circleSpeed * 8)
+                moveEnemy = SKAction.followPath( GetRandomPath(self.World!.frame, source: self, target: Playing.Feeds.first! ), asOffset: false, orientToPath: true, speed: self.circleSpeed * 8)
             }
             else
             {

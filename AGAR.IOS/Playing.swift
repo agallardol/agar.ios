@@ -60,7 +60,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         for i in 1..<feedQuantity
         {
             var feed: FeedCircle = FeedCircle(frame: self.World!.frame);
-            Playing.Feeds.append(feed);
+            Playing.Feeds.insert(feed);
             self.World!.addChild(feed);
         
         }
@@ -116,6 +116,14 @@ class Playing: SKScene, SKPhysicsContactDelegate {
 
     func didBeginContact(contact: SKPhysicsContact) {
         let firstNode = contact.bodyA.node as! SKShapeNode
+        if (contact.bodyB == nil)
+        {
+            return;
+        
+        }
+        if (contact.bodyB.node == nil){
+            return
+        }
         let secondNode = contact.bodyB.node as! SKShapeNode
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
@@ -206,7 +214,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         if ( Playing.Feeds.count < feedQuantity)
         {
             var feed: FeedCircle = FeedCircle(frame: self.World!.frame);
-            Playing.Feeds.append(feed);
+            Playing.Feeds.insert(feed);
             self.World!.addChild(feed);
         
         }

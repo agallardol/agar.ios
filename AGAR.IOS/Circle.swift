@@ -24,6 +24,7 @@ class Circle : SKShapeNode
     static let DEFAULT_FILL_COLOR: UIColor = UIColor(red: 86.0 / 255, green: 38.0 / 255, blue: 55.0 / 255, alpha: 1.0);
     
     static let WIGGLE_ANIMATION_KEY: String = "wiggle"
+  
     
     var radius: CGFloat {
         didSet {
@@ -82,14 +83,17 @@ class Circle : SKShapeNode
         return UIColor(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1.0)
     }
 
-    func EatFeed(feed: SKShapeNode)->Void
+    func EatFeed(feed : FeedCircle)->Void
     {
         feed.removeFromParent();
+        
         
         if(self.radius < PlayerCircle.MAX_SIZE_USING_FEED)
         {
             self.GrowUp(PlayerCircle.FEED_BONUS);
         }
+        
+        Playing.Feeds.remove(feed);
     }
     func GrowUp(bonus: CGFloat)->Void
     {
