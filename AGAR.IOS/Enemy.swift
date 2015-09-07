@@ -86,11 +86,18 @@ class Enemy : Circle
     
     func RandomPoint(bounds: CGRect)->CGPoint
     {
-        var mod = Int(arc4random()) % Int(CGRectGetMaxX(bounds));
+        /*var mod = Int(arc4random()) % Int(CGRectGetMaxX(bounds));
         var xvalue = Int(bounds.minX) + mod;
         
         mod = Int(arc4random()) % Int(CGRectGetMaxY(bounds));
         var yvalue = Int(bounds.minY) + mod;
+        return CGPoint(x: xvalue, y: yvalue);*/
+        var mod = Int(arc4random()) % Int(bounds.width);
+        var xvalue = Int(bounds.minX) + mod;
+        
+        mod = Int(arc4random()) % Int(bounds.height);
+        var yvalue = Int(bounds.minY) + mod;
+        
         return CGPoint(x: xvalue, y: yvalue);
     }
     
