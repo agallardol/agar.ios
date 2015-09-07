@@ -28,6 +28,10 @@ class Circle : SKShapeNode
     var radius: CGFloat {
         didSet {
             self.path = Circle.path(self.radius)
+            /*self.physicsBody = SKPhysicsBody(circleOfRadius: self.radius);
+            self.physicsBody?.usesPreciseCollisionDetection = true
+            self.physicsBody?.dynamic = true;
+            self.lineWidth = 2.0*/
             //self.physicsBody
         }
     }
@@ -96,5 +100,9 @@ class Circle : SKShapeNode
         }
         self.EatFeedAnimation()
     }
-    
+    func EatEnemy(enemy: Enemy)->Void
+    {
+        enemy.removeFromParent();
+        self.GrowUp(enemy.radius / 2);
+    }
 }

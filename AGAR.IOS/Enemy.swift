@@ -17,12 +17,14 @@ class Enemy : Circle
     
     convenience init(world: SKShapeNode, player: SKShapeNode)
     {
-        self.init(radius: Enemy.DEFAULT_SIZE, world: world, player: player, fillColor: Circle.getRandomColor(), strokeColor: Circle.getRandomColor());
+        var radius: CGFloat = CGFloat(Float(arc4random()) % 200) + Enemy.DEFAULT_SIZE / 2;
+        self.init(radius: radius, world: world, player: player, fillColor: Circle.getRandomColor(), strokeColor: Circle.getRandomColor());
     }
     
     convenience init(world: SKShapeNode, player: SKShapeNode, fillColor: UIColor, strokeColor: UIColor)
     {
-        self.init(radius: Enemy.DEFAULT_SIZE, world: world, player: player, fillColor: fillColor, strokeColor: strokeColor);
+        var radius: CGFloat = CGFloat(Float(arc4random()) % 200) + Enemy.DEFAULT_SIZE / 2;
+        self.init(radius: radius, world: world, player: player, fillColor: fillColor, strokeColor: strokeColor);
     }
     
     init(radius: CGFloat, world: SKShapeNode, player: SKShapeNode, fillColor: UIColor, strokeColor: UIColor)
@@ -46,7 +48,7 @@ class Enemy : Circle
         
         self.enemyLabel = SKLabelNode();
         self.enemyLabel!.name = "enemyLabel";
-        self.enemyLabel!.text = "El Terrible Enemigo";
+        self.enemyLabel!.text = "Enemy";
         self.enemyLabel!.fontSize = 25;
         self.enemyLabel!.fontColor = SKColor(red: 236.0 / 255,
             green: 206.0 / 255,
@@ -55,6 +57,7 @@ class Enemy : Circle
         self.enemyLabel!.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center;
         self.enemyLabel!.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center;
         self.enemyLabel!.userInteractionEnabled = true;
+        self.position = RandomPoint(self.World!.frame)
         self.addChild(enemyLabel!);
         
         var moveEnemy = SKAction.followPath(GetRandomPath(self.World!.frame, source: self, target: self.Player!), asOffset: false, orientToPath: true, speed: self.circleSpeed * 8);

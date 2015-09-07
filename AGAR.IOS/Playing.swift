@@ -20,7 +20,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     var touchPosition: CGPoint? = nil
     var World: SKShapeNode? = nil;
     static var Feeds: [FeedCircle] = [];
-    
+    static var endGame: Bool = false
     var Player: PlayerCircle? = nil;
     static var Enemys: [Enemy] = []
     
@@ -143,8 +143,17 @@ class Playing: SKScene, SKPhysicsContactDelegate {
                         }
                         else if(playerCircle.radius < enemyCircle.radius)
                         {
-                            enemyCircle.GrowUp(playerCircle.radius / 2)
-                            self.gameOver()
+                            if(!Playing.endGame)
+                            {
+                                Playing.endGame = true
+                                enemyCircle.GrowUp(playerCircle.radius / 2)
+                                playerCircle.hidden = true
+                                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
+                                dispatch_after(delayTime, dispatch_get_main_queue()) {
+                                    self.gameOver()
+                                }
+                            }
+
                         }
 
                         break
@@ -162,6 +171,17 @@ class Playing: SKScene, SKPhysicsContactDelegate {
                 {
                     case GameTools.PhysicsCategory.Enemy:
                         //logica choque enemy con enemy
+                        var enemyCircleA: Enemy = (firstBody.node as! Enemy)
+                        var enemyCircleB: Enemy = (firstBody.node as! Enemy)
+                        
+                        if(enemyCircleA.radius > enemyCircleB.radius)
+                        {
+                            enemyCircleA.EatEnemy(enemyCircleB)
+                        }
+                        else if(enemyCircleB.radius > enemyCircleA.radius)
+                        {
+                            enemyCircleB.EatEnemy(enemyCircleA)
+                        }
                         break
                     case GameTools.PhysicsCategory.Feed:
                         (firstBody.node as! Enemy).EatFeed(secondBody.node as! FeedCircle)
