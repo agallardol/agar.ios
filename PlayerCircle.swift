@@ -59,17 +59,7 @@ class PlayerCircle : Circle
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func JellyAnimation()->Void
-    {
-        let wiggleInX = SKAction.scaleXTo(1.03, duration: 0.2)
-        let wiggleOutX = SKAction.scaleXTo(1.0, duration: 0.2)
-        let wiggleInY = SKAction.scaleYTo(1.03, duration: 0.2)
-        let wiggleOutY = SKAction.scaleYTo(1.0, duration: 0.2)
-        let wiggle = SKAction.sequence([wiggleInX, wiggleOutX, wiggleInY, wiggleOutY])
-        let repeatedWiggle = SKAction.repeatActionForever(wiggle)
-        self.runAction(repeatedWiggle, withKey: PlayerCircle.WIGGLE_ANIMATION_KEY)
-    }
+
  
    
 
@@ -77,6 +67,7 @@ class PlayerCircle : Circle
     func Move(touchPosition: CGPoint)->Void {
         
             // Get sprite's current position (a.k.a. starting point).
+        
         let currentPosition = self.position
         
         var xVect = touchPosition.x - currentPosition.x
@@ -87,6 +78,7 @@ class PlayerCircle : Circle
         
         var dx = normalizedVector.dx*self.circleSpeed
         var dy = normalizedVector.dy*self.circleSpeed
+        
         var newPosition:CGPoint = CGPoint(x: currentPosition.x + dx, y: currentPosition.y + dy)
         
         //debugPrintln(self.World!.position)
@@ -97,7 +89,7 @@ class PlayerCircle : Circle
         {
             dx = 0;
         }
-        if ((newPosition.y < -self.World!.frame.width / 2  && dy < 0) || (newPosition.y > self.World!.frame.width / 2  && dy > 0))
+        if ((newPosition.y < -self.World!.frame.height / 2  && dy < 0) || (newPosition.y > self.World!.frame.height / 2  && dy > 0))
         {
             dy = 0;
         }

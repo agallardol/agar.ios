@@ -31,7 +31,16 @@ class Circle : SKShapeNode
             //self.physicsBody
         }
     }
-    
+    func JellyAnimation()->Void
+    {
+        let wiggleInX = SKAction.scaleXTo(1.03, duration: 0.2)
+        let wiggleOutX = SKAction.scaleXTo(1.0, duration: 0.2)
+        let wiggleInY = SKAction.scaleYTo(1.03, duration: 0.2)
+        let wiggleOutY = SKAction.scaleYTo(1.0, duration: 0.2)
+        let wiggle = SKAction.sequence([wiggleInX, wiggleOutX, wiggleInY, wiggleOutY])
+        let repeatedWiggle = SKAction.repeatActionForever(wiggle)
+        self.runAction(repeatedWiggle, withKey: PlayerCircle.WIGGLE_ANIMATION_KEY)
+    }
     init(radius: CGFloat, position: CGPoint) {
         self.radius = radius
         

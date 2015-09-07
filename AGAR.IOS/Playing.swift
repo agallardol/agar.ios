@@ -15,8 +15,8 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     var moving: Bool = false;
     let radiusMax: CGFloat = 120.0;
     let maxFontSize: CGFloat = 35;
-    let enemyQuantity: Int = 3
-    let feedQuantity: Int = 50
+    let enemyQuantity: Int = 10
+    let feedQuantity: Int = 80
     var touchPosition: CGPoint? = nil
     var World: SKShapeNode? = nil;
     static var Feeds: [FeedCircle] = [];
@@ -165,12 +165,17 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     }
     override func update(currentTime: CFTimeInterval) {
         if (moving)
-        {
-            debugPrintln("test")
-           
-            var final : CGPoint = CGPoint(x: self.Player!.position.x + self.Player!.circleSpeed * self.touchPosition!.x, y: self.Player!.position.y + self.Player!.circleSpeed * self.touchPosition!.y)
+        {           
+            var final : CGPoint = CGPoint(x: self.Player!.position.x +  self.touchPosition!.x, y: self.Player!.position.y + self.touchPosition!.y)
     
             self.Player!.Move(final)
+        }
+        if ( Playing.Feeds.count < feedQuantity)
+        {
+            var feed: FeedCircle = FeedCircle(frame: self.World!.frame);
+            Playing.Feeds.append(feed);
+            self.World!.addChild(feed);
+        
         }
     }
 }
