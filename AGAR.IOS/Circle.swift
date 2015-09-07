@@ -12,10 +12,9 @@ class Circle : SKShapeNode
 {
     static let MIN_SPEED: CGFloat = 5.0;
     static let MAX_SPEED: CGFloat = 35.0
-    var circleSpeed: CGFloat = Circle.MAX_SPEED;
     static let FEED_BONUS: CGFloat = 0.5;
     
-    static let MAX_SIZE: CGFloat = 1000;
+    static let MAX_SIZE: CGFloat = 450;
     static let MAX_SIZE_USING_FEED: CGFloat = 200;
     
     static let DEFAULT_SIZE: CGFloat = 40.0;
@@ -25,7 +24,11 @@ class Circle : SKShapeNode
     
     static let WIGGLE_ANIMATION_KEY: String = "wiggle"
   
-    
+    func circleSpeed() -> CGFloat
+    {
+        var xxx = (Circle.MIN_SPEED - Circle.MAX_SPEED)/(Circle.MAX_SIZE - Circle.DEFAULT_SIZE)
+        return xxx * self.radius + Circle.MAX_SPEED - Circle.DEFAULT_SIZE * xxx;
+    }
     var radius: CGFloat {
         didSet {
             self.path = Circle.path(self.radius)
@@ -98,10 +101,10 @@ class Circle : SKShapeNode
     func GrowUp(bonus: CGFloat)->Void
     {
         self.radius += bonus;
-        
-        if (self.circleSpeed - bonus >= PlayerCircle.MIN_SPEED){
+        /*
+        if (self.circleSpeed() - bonus >= PlayerCircle.MIN_SPEED){
             self.circleSpeed -= bonus;
-        }
+        }*/
         self.EatFeedAnimation()
     }
     func EatEnemy(enemy: Enemy)->Void

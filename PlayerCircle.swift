@@ -28,7 +28,7 @@ class PlayerCircle : Circle
                self.World = world
         super.init(radius: radius, position: GameTools.RandomPoint(world.frame))
 
-        self.circleSpeed = PlayerCircle.MAX_SPEED;
+        //self.circleSpeed = PlayerCircle.MAX_SPEED;
 
         //Color
         self.strokeColor = strokeColor;
@@ -73,8 +73,8 @@ class PlayerCircle : Circle
         
         var normalizedVector: CGVector = CGVectorMake(xVect / norm,  yVect / norm)
         
-        var dx = normalizedVector.dx*self.circleSpeed
-        var dy = normalizedVector.dy*self.circleSpeed
+        var dx = normalizedVector.dx*self.circleSpeed()
+        var dy = normalizedVector.dy*self.circleSpeed()
         
         var newPosition:CGPoint = CGPoint(x: currentPosition.x + dx, y: currentPosition.y + dy)
         
