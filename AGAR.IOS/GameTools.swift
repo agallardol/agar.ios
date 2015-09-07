@@ -18,7 +18,11 @@ class GameTools
         
         mod = Int(arc4random()) % Int(bounds.height);
         var yvalue = Int(bounds.minY) + mod;
+        
         return CGPoint(x: xvalue, y: yvalue);
+        
+        
+        
     }
     
     static func centerOnNode(node: SKNode)->Void
