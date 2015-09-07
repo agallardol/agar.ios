@@ -20,9 +20,8 @@ class GameTools
         var yvalue = Int(bounds.minY) + mod;
         
         return CGPoint(x: xvalue, y: yvalue);
-        
-        
-        
+
+    
     }
     
     static func centerOnNode(node: SKNode)->Void
