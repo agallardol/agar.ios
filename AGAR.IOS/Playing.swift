@@ -12,11 +12,12 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     
     var tempCircle = SKShapeNode(circleOfRadius: 30);
     var currentScale: CGFloat = 1.0;
+    var moving: Bool = false;
     let radiusMax: CGFloat = 120.0;
     let maxFontSize: CGFloat = 35;
     let enemyQuantity: Int = 3
     let feedQuantity: Int = 50
-    
+    var touchPosition: CGPoint? = nil
     var World: SKShapeNode? = nil;
     static var Feeds: [FeedCircle] = [];
     
@@ -64,6 +65,26 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         
         }
     }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        for touch in (touches as! Set<UITouch>) {
+            // Get the position that was touched (a.k.a. ending point).
+            self.touchPosition = touch.locationInNode(self.World);
+            var vector : CGPoint = CGPoint(x: self.touchPosition!.x - self.Player!.position.x, y: self.touchPosition!.y - self.Player!.position.y)
+            var modulo = sqrt( pow(vector.x,2) + pow(vector.y,2))
+            vector.x = vector.x / modulo;
+            vector.y = vector.y / modulo;
+            self.touchPosition = vector;
+            //debugPrintln("WORLD WORLD", self.World!.frame.minX, self.World!.frame.maxX)
+            
+            //self.Player?.Move(touchPosition)
+        }
+        self.moving = true;
+    }
+    
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.moving = false;
+    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -76,17 +97,21 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     {
         GameTools.centerOnNode(self.childNodeWithName("world")!.childNodeWithName("player")!);
     }
-
+    
+    
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
-        
-        for touch in (touches as! Set<UITouch>) {
-            // Get the position that was touched (a.k.a. ending point).
-            var touchPosition = touch.locationInNode(self.World);
-            debugPrintln("WORLD WORLD", self.World!.frame.minX, self.World!.frame.maxX)
-
-            self.Player?.Move(touchPosition)
+       for touch in (touches as! Set<UITouch>) {
+        self.touchPosition = touch.locationInNode(self.World);
+        var vector : CGPoint = CGPoint(x: self.touchPosition!.x - self.Player!.position.x, y: self.touchPosition!.y - self.Player!.position.y)
+        var modulo = sqrt( pow(vector.x,2) + pow(vector.y,2))
+        vector.x = vector.x / modulo;
+        vector.y = vector.y / modulo;
+        self.touchPosition = vector;
         }
+        self.moving = true;
+        
+       
     }
 
     func didBeginContact(contact: SKPhysicsContact) {
@@ -139,6 +164,13 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         }
     }
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        if (moving)
+        {
+            debugPrintln("test")
+           
+            var final : CGPoint = CGPoint(x: self.Player!.position.x + self.Player!.circleSpeed * self.touchPosition!.x, y: self.Player!.position.y + self.Player!.circleSpeed * self.touchPosition!.y)
+    
+            self.Player!.Move(final)
+        }
     }
 }

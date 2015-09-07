@@ -10,37 +10,26 @@ import SpriteKit
 
 class PlayerCircle : Circle
 {
-    static let DEFAULT_PLAYER_SIZE: CGFloat = 40.0;
-    static let MIN_PLAYER_SPEED: CGFloat = 5.0;
-    static let MAX_PLAYER_SPEED: CGFloat = 50.0
-    static let MAX_PLAYER_SIZE: CGFloat = 1000;
-    static let MAX_PLAYER_SIZE_USING_FEED: CGFloat = 200;
-    static let FONT_LIMIT_SIZE: CGFloat = 40;
-    static let DEFAULT_PLAYER_STROKE_COLOR: UIColor = UIColor(red: 236.0 / 255, green: 206.0 / 255, blue: 118.0 / 255, alpha: 1.0);
-    static let DEFAULT_PLAYER_FILL_COLOR: UIColor = UIColor(red: 86.0 / 255, green: 38.0 / 255, blue: 55.0 / 255, alpha: 1.0);
-    static let FEED_BONUS: CGFloat = 5.0;
-    static let WIGGLE_ANIMATION_KEY: String = "wiggle"
-    
     var World: SKShapeNode? = nil;
     var playerLabel: SKLabelNode? = nil;
-    var playerSpeed: CGFloat = PlayerCircle.MAX_PLAYER_SPEED
+    
     convenience init(world: SKShapeNode)
     {
-        self.init(radius: PlayerCircle.DEFAULT_PLAYER_SIZE, world: world, fillColor: PlayerCircle.DEFAULT_PLAYER_FILL_COLOR, strokeColor: PlayerCircle.DEFAULT_PLAYER_STROKE_COLOR);
+        self.init(radius: PlayerCircle.DEFAULT_SIZE, world: world, fillColor: PlayerCircle.DEFAULT_FILL_COLOR, strokeColor: PlayerCircle.DEFAULT_STROKE_COLOR);
     }
 
     convenience init(world: SKShapeNode, fillColor: UIColor, strokeColor: UIColor)
     {
-        self.init(radius: PlayerCircle.DEFAULT_PLAYER_SIZE, world: world, fillColor: fillColor, strokeColor: strokeColor);
+        self.init(radius: PlayerCircle.DEFAULT_SIZE, world: world, fillColor: fillColor, strokeColor: strokeColor);
     }
     
     init(radius: CGFloat, world: SKShapeNode, fillColor: UIColor, strokeColor: UIColor)
     {
-        self.World = world
-        self.playerSpeed = PlayerCircle.MAX_PLAYER_SPEED;
-
+               self.World = world
         super.init(radius: radius, position: GameTools.RandomPoint(world.frame))
-        
+
+        self.circleSpeed = PlayerCircle.MAX_SPEED;
+
         //Color
         self.strokeColor = strokeColor;
         self.fillColor = fillColor;
@@ -81,29 +70,9 @@ class PlayerCircle : Circle
         let repeatedWiggle = SKAction.repeatActionForever(wiggle)
         self.runAction(repeatedWiggle, withKey: PlayerCircle.WIGGLE_ANIMATION_KEY)
     }
-    func EatFeed(feed: SKShapeNode)->Void
-    {
-        feed.removeFromParent();
-        
-        if(self.radius < PlayerCircle.MAX_PLAYER_SIZE_USING_FEED)
-        {
-            self.GrowUp(PlayerCircle.FEED_BONUS);
-        }
-    }
-    func EatFeedAnimation()->Void
-    {
-        let wiggleInX = SKAction.scaleXTo(1.1, duration: 0.3)
-        let wiggleOutX = SKAction.scaleXTo(1.0, duration: 0.3)
-        let wiggleInY = SKAction.scaleYTo(1.1, duration: 0.3)
-        let wiggleOutY = SKAction.scaleYTo(1.0, duration: 0.2)
-        let wiggle = SKAction.sequence([wiggleInX, wiggleOutX, wiggleInY, wiggleOutY])
-        self.runAction(wiggle)
-    }
-    func GrowUp(bonus: CGFloat)->Void
-    {
-        self.radius += bonus;
-        self.EatFeedAnimation()
-    }
+ 
+   
+
     
     func Move(touchPosition: CGPoint)->Void {
         
@@ -116,13 +85,13 @@ class PlayerCircle : Circle
         
         var normalizedVector: CGVector = CGVectorMake(xVect / norm,  yVect / norm)
         
-        var dx = normalizedVector.dx*self.playerSpeed
-        var dy = normalizedVector.dy*self.playerSpeed
+        var dx = normalizedVector.dx*self.circleSpeed
+        var dy = normalizedVector.dy*self.circleSpeed
         var newPosition:CGPoint = CGPoint(x: currentPosition.x + dx, y: currentPosition.y + dy)
         
         //debugPrintln(self.World!.position)
         
-        debugPrintln(newPosition)
+       // debugPrintln(newPosition)
         
         if ((newPosition.x < -self.World!.frame.width / 2 && dx < 0) || (newPosition.x > self.World!.frame.width / 2  && dx > 0))
         {
