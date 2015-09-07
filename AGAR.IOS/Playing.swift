@@ -19,7 +19,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     let feedQuantity: Int = 80
     var touchPosition: CGPoint? = nil
     var World: SKShapeNode? = nil;
-    static var Feeds: [FeedCircle] = [];
+    static var Feeds: Set<FeedCircle> = []
     static var endGame: Bool = false
     var Player: PlayerCircle? = nil;
     static var Enemys: [Enemy] = []
