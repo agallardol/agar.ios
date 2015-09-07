@@ -142,6 +142,19 @@ class Playing: SKScene, SKPhysicsContactDelegate {
                 {
                     case GameTools.PhysicsCategory.Enemy:
                         //logica choque player con enemy
+                        var playerCircle : PlayerCircle = (firstBody.node as! PlayerCircle)
+                        var enemyCircle : Enemy = (secondBody.node as! Enemy)
+                        
+                        if(playerCircle.radius > enemyCircle.radius)
+                        {
+                            playerCircle.EatEnemy(enemyCircle)
+                        }
+                        else if(playerCircle.radius < enemyCircle.radius)
+                        {
+                            enemyCircle.GrowUp(playerCircle.radius / 2)
+                            self.gameOver()
+                        }
+
                         break
                     case GameTools.PhysicsCategory.Feed:
                         (firstBody.node as! PlayerCircle).EatFeed(secondBody.node as! FeedCircle)
@@ -184,6 +197,12 @@ class Playing: SKScene, SKPhysicsContactDelegate {
             Playing.Feeds.insert(feed);
             self.World!.addChild(feed);
         
+        }
+    }
+    func gameOver(){
+        if let scene = MainMenu.unarchiveFromFile("MainMenu") as? MainMenu {
+            scene.settt(true, points: Int(self.Player!.radius));
+            self.view!.presentScene(scene, transition: SKTransition.crossFadeWithDuration(2))
         }
     }
 }
