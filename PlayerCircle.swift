@@ -60,12 +60,6 @@ class PlayerCircle : Circle
         fatalError("init(coder:) has not been implemented")
     }
 
-    func EatEnemy(enemy: Enemy)->Void
-    {
-        enemy.removeFromParent();
-        self.GrowUp(enemy.radius / 2);
-    }
-
     
     func Move(touchPosition: CGPoint)->Void {
         
