@@ -60,8 +60,7 @@ class PlayerCircle : Circle
         fatalError("init(coder:) has not been implemented")
     }
 
-
-
+    
     func Move(touchPosition: CGPoint)->Void {
         
             // Get sprite's current position (a.k.a. starting point).
