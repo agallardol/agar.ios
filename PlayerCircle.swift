@@ -81,7 +81,7 @@ class PlayerCircle : Circle
         let repeatedWiggle = SKAction.repeatActionForever(wiggle)
         self.runAction(repeatedWiggle, withKey: PlayerCircle.WIGGLE_ANIMATION_KEY)
     }
-    func EatFeed(feed: SKShapeNode)->Void
+    func EatFeed(feed: FeedCircle)->Void
     {
         feed.removeFromParent();
         
@@ -89,6 +89,11 @@ class PlayerCircle : Circle
         {
             self.GrowUp(PlayerCircle.FEED_BONUS);
         }
+    }
+    func EatEnemy(enemy: Enemy)->Void
+    {
+        enemy.removeFromParent();
+        self.GrowUp(enemy.radius / 2);
     }
     func EatFeedAnimation()->Void
     {

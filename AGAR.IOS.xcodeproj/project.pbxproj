@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 47;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0A8BADEA1B39B5F200CDBD89 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BADE91B39B5F200CDBD89 /* Enemy.swift */; };
+		6FE2536F1B9E1DC300E66E43 /* EndGameOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2536E1B9E1DC300E66E43 /* EndGameOverlay.swift */; };
 		C611DE811B2FCDCE00B6F863 /* Playing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611DE801B2FCDCE00B6F863 /* Playing.swift */; };
 		C611DE831B2FD2D600B6F863 /* FeedCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611DE821B2FD2D600B6F863 /* FeedCircle.swift */; };
 		C638E9AF1B2E6BB5009451BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C638E9AE1B2E6BB5009451BC /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		0A8BADE91B39B5F200CDBD89 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		6FE2536E1B9E1DC300E66E43 /* EndGameOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndGameOverlay.swift; sourceTree = "<group>"; };
 		C611DE801B2FCDCE00B6F863 /* Playing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playing.swift; sourceTree = "<group>"; };
 		C611DE821B2FD2D600B6F863 /* FeedCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCircle.swift; sourceTree = "<group>"; };
 		C638E9A91B2E6BB5009451BC /* AGAR.IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGAR.IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +109,7 @@
 				C6DBB0591B305C570009C0E2 /* Circle.swift */,
 				C6DBB05B1B306B2D0009C0E2 /* PlayerCircle.swift */,
 				0A8BADE91B39B5F200CDBD89 /* Enemy.swift */,
+				6FE2536E1B9E1DC300E66E43 /* EndGameOverlay.swift */,
 			);
 			path = AGAR.IOS;
 			sourceTree = "<group>";
@@ -180,7 +183,7 @@
 		C638E9A11B2E6BB5009451BC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Agallardol;
 				TargetAttributes = {
 					C638E9A81B2E6BB5009451BC = {
@@ -193,7 +196,7 @@
 				};
 			};
 			buildConfigurationList = C638E9A41B2E6BB5009451BC /* Build configuration list for PBXProject "AGAR.IOS" */;
-			compatibilityVersion = "Xcode 6.3";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -237,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FE2536F1B9E1DC300E66E43 /* EndGameOverlay.swift in Sources */,
 				C6DBB05A1B305C570009C0E2 /* Circle.swift in Sources */,
 				C611DE811B2FCDCE00B6F863 /* Playing.swift in Sources */,
 				C6DBB0581B305A9B0009C0E2 /* GameTools.swift in Sources */,

@@ -19,11 +19,18 @@ class MainMenu: SKScene {
     var playButton = SKShapeNode(circleOfRadius: 60);
     var myLabel = SKLabelNode(fontNamed:"Futura")
     var playButtonLabel = SKLabelNode(fontNamed:"Futura")
-
+    var isEndGame: Bool = false;
+    var points: Int = 0;
+    func settt(isEndGame: Bool, points: Int)
+    {
+        //self.init()
+        self.isEndGame = true
+        self.points = points
+    }
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
 
-        myLabel.text = "AGAR.IOS";
+        /*myLabel.text = "AGAR.IOS";
         myLabel.fontSize = 65;
         myLabel.position = CGPoint(x:(CGRectGetMaxX(self.frame) - CGRectGetMidX(self.frame)/2), y:CGRectGetMidY(self.frame));
         myLabel.fontColor = SKColor(red: 236.0 / 255,
@@ -32,16 +39,15 @@ class MainMenu: SKScene {
             alpha: 1.0);
         myLabel.zPosition = 2;
         myLabel.name = "titleLabel";
-        self.addChild(myLabel);
+        self.addChild(myLabel);*/
         
         
         //Set Background Image
-        background.anchorPoint = CGPoint(x: 0, y: 0);
+       /* background.anchorPoint = CGPoint(x: 0, y: 0);
         background.size = self.size;
         background.zPosition = -2;
-        self.addChild(background);
+        self.addChild(background);*/
         
-        //PlayButton as Player
         playButton.name = "playButton";
         playButton.setScale(currentScale);
         playButton.strokeColor = SKColor(red: 236.0 / 255,
@@ -58,7 +64,7 @@ class MainMenu: SKScene {
         playButton.antialiased = true;
         
         playButtonLabel.name = "playButtonLabel";
-        playButtonLabel.text = "Play";
+
         playButtonLabel.fontSize = 25;
         playButtonLabel.fontColor = SKColor(red: 236.0 / 255,
             green: 206.0 / 255,
@@ -85,11 +91,26 @@ class MainMenu: SKScene {
         tempCircle.antialiased = true;
         self.addChild(tempCircle);
         
+        if(self.isEndGame)
+        {
+            
+            (self.childNodeWithName("loseLabel") as! SKLabelNode).hidden = false;
+            (self.childNodeWithName("pointsLabel") as! SKLabelNode).hidden = false;
+            (self.childNodeWithName("pointsNumberLabel") as! SKLabelNode).hidden = false;
+            (self.childNodeWithName("pointsNumberLabel") as! SKLabelNode).text = String(self.points)
+            playButtonLabel.text = "ReJugar";
+        }
+        else {
+            (self.childNodeWithName("loseLabel") as! SKLabelNode).hidden = true;
+            (self.childNodeWithName("pointsLabel") as! SKLabelNode).hidden = true;
+            (self.childNodeWithName("pointsNumberLabel") as! SKLabelNode).hidden = true;
+            playButtonLabel.text = "Jugar";
+        }
+        
+        
         var movePlayButton = SKAction.followPath( GetRandomPath(self.frame, button: playButton, circle: tempCircle), asOffset: false, orientToPath: true, duration: 8.0);
         
         playButton.runAction(movePlayButton, completion: {self.OnMovePlayButtonEnd(self.frame, button: self.playButton, circle: self.tempCircle);});
- 
-        
     }
     
 
@@ -138,7 +159,7 @@ class MainMenu: SKScene {
                 let scene = Playing(width: 1000, height: 1000);
                 var skView = self.view as SKView!
                 scene.scaleMode = SKSceneScaleMode.AspectFill;
-                skView.presentScene(scene, transition: SKTransition.flipHorizontalWithDuration(1));
+                skView.presentScene(scene, transition: SKTransition.crossFadeWithDuration(2));
             }
         }
     }
