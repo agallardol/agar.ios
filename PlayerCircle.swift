@@ -59,45 +59,13 @@ class PlayerCircle : Circle
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func JellyAnimation()->Void
-    {
-        let wiggleInX = SKAction.scaleXTo(1.03, duration: 0.2)
-        let wiggleOutX = SKAction.scaleXTo(1.0, duration: 0.2)
-        let wiggleInY = SKAction.scaleYTo(1.03, duration: 0.2)
-        let wiggleOutY = SKAction.scaleYTo(1.0, duration: 0.2)
-        let wiggle = SKAction.sequence([wiggleInX, wiggleOutX, wiggleInY, wiggleOutY])
-        let repeatedWiggle = SKAction.repeatActionForever(wiggle)
-        self.runAction(repeatedWiggle, withKey: PlayerCircle.WIGGLE_ANIMATION_KEY)
-    }
-    func EatFeed(feed: FeedCircle)->Void
-    {
-        feed.removeFromParent();
-        
-        if(self.radius < PlayerCircle.MAX_PLAYER_SIZE_USING_FEED)
-        {
-            self.GrowUp(PlayerCircle.FEED_BONUS);
-        }
-    }
+
     func EatEnemy(enemy: Enemy)->Void
     {
         enemy.removeFromParent();
         self.GrowUp(enemy.radius / 2);
     }
-    func EatFeedAnimation()->Void
-    {
-        let wiggleInX = SKAction.scaleXTo(1.1, duration: 0.3)
-        let wiggleOutX = SKAction.scaleXTo(1.0, duration: 0.3)
-        let wiggleInY = SKAction.scaleYTo(1.1, duration: 0.3)
-        let wiggleOutY = SKAction.scaleYTo(1.0, duration: 0.2)
-        let wiggle = SKAction.sequence([wiggleInX, wiggleOutX, wiggleInY, wiggleOutY])
-        self.runAction(wiggle)
-    }
-    func GrowUp(bonus: CGFloat)->Void
-    {
-        self.radius += bonus;
-        self.EatFeedAnimation()
-    }
+
     
     func Move(touchPosition: CGPoint)->Void {
         
