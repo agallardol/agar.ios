@@ -24,14 +24,20 @@ class Circle : SKShapeNode
     
     static let WIGGLE_ANIMATION_KEY: String = "wiggle"
   
-    func circleSpeed() -> CGFloat
+    private var circleSpeed : CGFloat;
+    
+    func getCircleSpeed() -> CGFloat
     {
-        var xxx = (Circle.MIN_SPEED - Circle.MAX_SPEED)/(Circle.MAX_SIZE - Circle.DEFAULT_SIZE)
-        return xxx * self.radius + Circle.MAX_SPEED - Circle.DEFAULT_SIZE * xxx;
+        return circleSpeed;
     }
+
     var radius: CGFloat {
         didSet {
             self.path = Circle.path(self.radius)
+            
+            var pendiente = (Circle.MIN_SPEED - Circle.MAX_SPEED)/(Circle.MAX_SIZE - Circle.DEFAULT_SIZE)
+            self.circleSpeed = pendiente * self.radius + Circle.MAX_SPEED - Circle.DEFAULT_SIZE * pendiente;
+
             /*self.physicsBody = SKPhysicsBody(circleOfRadius: self.radius);
             self.physicsBody?.usesPreciseCollisionDetection = true
             self.physicsBody?.dynamic = true;
@@ -50,8 +56,9 @@ class Circle : SKShapeNode
         self.runAction(repeatedWiggle, withKey: PlayerCircle.WIGGLE_ANIMATION_KEY)
     }
     init(radius: CGFloat, position: CGPoint) {
-        self.radius = radius
         
+        self.circleSpeed = 0;
+        self.radius = radius
         super.init()
         
         self.path = Circle.path(self.radius)
