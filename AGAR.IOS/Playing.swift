@@ -305,7 +305,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
             self.Player!.Move(final)
             //debugPrintln(self.Player!.position)
         }
-        if (Player!.radius >= 80)
+        if (Player!.radius >= 250)
         {
             winGame()
         }
