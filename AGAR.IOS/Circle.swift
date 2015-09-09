@@ -23,7 +23,7 @@ class Circle : SKShapeNode
     static let DEFAULT_FILL_COLOR: UIColor = UIColor(red: 86.0 / 255, green: 38.0 / 255, blue: 55.0 / 255, alpha: 1.0);
     
     static let WIGGLE_ANIMATION_KEY: String = "wiggle"
-  
+    var originalRadius: CGFloat
     func circleSpeed() -> CGFloat
     {
         var xxx = (Circle.MIN_SPEED - Circle.MAX_SPEED)/(Circle.MAX_SIZE - Circle.DEFAULT_SIZE)
@@ -31,29 +31,26 @@ class Circle : SKShapeNode
     }
     var radius: CGFloat {
         didSet {
-            self.path = Circle.path(self.radius)
-            /*self.physicsBody = SKPhysicsBody(circleOfRadius: self.radius);
-            self.physicsBody?.usesPreciseCollisionDetection = true
-            self.physicsBody?.dynamic = true;
-            self.lineWidth = 2.0*/
+            //self.path = Circle.path(self.radius)
+
             //self.physicsBody
         }
     }
     func JellyAnimation()->Void
     {
-        let wiggleInX = SKAction.scaleXTo(1.03, duration: 0.2)
-        let wiggleOutX = SKAction.scaleXTo(1.0, duration: 0.2)
-        let wiggleInY = SKAction.scaleYTo(1.03, duration: 0.2)
-        let wiggleOutY = SKAction.scaleYTo(1.0, duration: 0.2)
+        let wiggleInX = SKAction.scaleXBy(1.03, y: 1.0, duration: 0.2)
+        let wiggleOutX = SKAction.scaleXBy(1.0/1.03, y: 1.0, duration: 0.2)
+        let wiggleInY = SKAction.scaleXBy(1.0, y: 1.03, duration: 0.2)
+        let wiggleOutY = SKAction.scaleXBy(1.0, y: 1.0/1.03, duration: 0.2)
         let wiggle = SKAction.sequence([wiggleInX, wiggleOutX, wiggleInY, wiggleOutY])
         let repeatedWiggle = SKAction.repeatActionForever(wiggle)
         self.runAction(repeatedWiggle, withKey: PlayerCircle.WIGGLE_ANIMATION_KEY)
     }
     init(radius: CGFloat, position: CGPoint) {
         self.radius = radius
-        
+        self.originalRadius = self.radius
         super.init()
-        
+
         self.path = Circle.path(self.radius)
         self.position = position
         
@@ -74,10 +71,10 @@ class Circle : SKShapeNode
     }
     func EatFeedAnimation()->Void
     {
-        let wiggleInX = SKAction.scaleXTo(1.1, duration: 0.3)
-        let wiggleOutX = SKAction.scaleXTo(1.0, duration: 0.3)
-        let wiggleInY = SKAction.scaleYTo(1.1, duration: 0.3)
-        let wiggleOutY = SKAction.scaleYTo(1.0, duration: 0.2)
+        let wiggleInX = SKAction.scaleXBy(1.1, y: 1.0, duration: 0.3)
+        let wiggleOutX = SKAction.scaleXBy(1.0/1.1 , y: 1.0, duration: 0.3)
+        let wiggleInY = SKAction.scaleXBy(1.0, y: 1.1, duration: 0.3)
+        let wiggleOutY = SKAction.scaleXBy(1.0, y: 1.0/1.1 , duration: 0.3)
         let wiggle = SKAction.sequence([wiggleInX, wiggleOutX, wiggleInY, wiggleOutY])
         self.runAction(wiggle)
     }
@@ -100,11 +97,10 @@ class Circle : SKShapeNode
     }
     func GrowUp(bonus: CGFloat)->Void
     {
+        self.setScale((self.radius + bonus) / self.originalRadius)
+        debugPrintln((self.radius + bonus) / self.originalRadius)
         self.radius += bonus;
-        /*
-        if (self.circleSpeed() - bonus >= PlayerCircle.MIN_SPEED){
-            self.circleSpeed -= bonus;
-        }*/
+
         self.EatFeedAnimation()
     }
     func EatEnemy(enemy: Enemy)->Void
