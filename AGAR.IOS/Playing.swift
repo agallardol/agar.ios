@@ -191,6 +191,29 @@ class Playing: SKScene, SKPhysicsContactDelegate {
                             enemyCircleB.EatEnemy(enemyCircleA)
                         }
                         break
+                    case GameTools.PhysicsCategory.Player:
+                        //logica choque player con enemy
+                        var enemyCircle : Enemy = (firstBody.node as! Enemy)
+                        var playerCircle : PlayerCircle = (secondBody.node as! PlayerCircle)
+                        if(playerCircle.radius > enemyCircle.radius)
+                        {
+                            playerCircle.EatEnemy(enemyCircle)
+                        }
+                        else if(playerCircle.radius < enemyCircle.radius)
+                        {
+                            if(!Playing.endGame)
+                            {
+                                Playing.endGame = true
+                                enemyCircle.GrowUp(playerCircle.radius / 2)
+                                playerCircle.hidden = true
+                                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
+                                dispatch_after(delayTime, dispatch_get_main_queue()) {
+                                self.gameOver()
+                                }
+                            }
+                        }
+                    
+                    break
                     case GameTools.PhysicsCategory.Feed:
                         (firstBody.node as! Enemy).EatFeed(secondBody.node as! FeedCircle)
                         break

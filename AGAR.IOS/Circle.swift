@@ -47,10 +47,10 @@ class Circle : SKShapeNode
     }
     func JellyAnimation()->Void
     {
-        let wiggleInX = SKAction.scaleXTo(1.03, duration: 0.2)
-        let wiggleOutX = SKAction.scaleXTo(1.0, duration: 0.2)
-        let wiggleInY = SKAction.scaleYTo(1.03, duration: 0.2)
-        let wiggleOutY = SKAction.scaleYTo(1.0, duration: 0.2)
+        let wiggleInX = SKAction.scaleXBy(1.03, y: 1.0, duration: 0.2)
+        let wiggleOutX = SKAction.scaleXBy(1.0/1.03, y: 1.0, duration: 0.2)
+        let wiggleInY = SKAction.scaleXBy(1.0, y: 1.03, duration: 0.2)
+        let wiggleOutY = SKAction.scaleXBy(1.0, y: 1.0/1.03, duration: 0.2)
         let wiggle = SKAction.sequence([wiggleInX, wiggleOutX, wiggleInY, wiggleOutY])
         let repeatedWiggle = SKAction.repeatActionForever(wiggle)
         self.runAction(repeatedWiggle, withKey: PlayerCircle.WIGGLE_ANIMATION_KEY)
@@ -60,7 +60,7 @@ class Circle : SKShapeNode
         self.circleSpeed = 0;
         self.radius = radius
         super.init()
-        
+
         self.path = Circle.path(self.radius)
         self.position = position
         
@@ -81,10 +81,10 @@ class Circle : SKShapeNode
     }
     func EatFeedAnimation()->Void
     {
-        let wiggleInX = SKAction.scaleXTo(1.1, duration: 0.3)
-        let wiggleOutX = SKAction.scaleXTo(1.0, duration: 0.3)
-        let wiggleInY = SKAction.scaleYTo(1.1, duration: 0.3)
-        let wiggleOutY = SKAction.scaleYTo(1.0, duration: 0.2)
+        let wiggleInX = SKAction.scaleXBy(1.1, y: 1.0, duration: 0.3)
+        let wiggleOutX = SKAction.scaleXBy(1.0/1.1 , y: 1.0, duration: 0.3)
+        let wiggleInY = SKAction.scaleXBy(1.0, y: 1.1, duration: 0.3)
+        let wiggleOutY = SKAction.scaleXBy(1.0, y: 1.0/1.1 , duration: 0.3)
         let wiggle = SKAction.sequence([wiggleInX, wiggleOutX, wiggleInY, wiggleOutY])
         self.runAction(wiggle)
     }
@@ -107,11 +107,10 @@ class Circle : SKShapeNode
     }
     func GrowUp(bonus: CGFloat)->Void
     {
+        self.setScale((self.radius + bonus) / self.originalRadius)
+        debugPrintln((self.radius + bonus) / self.originalRadius)
         self.radius += bonus;
-        /*
-        if (self.circleSpeed() - bonus >= PlayerCircle.MIN_SPEED){
-            self.circleSpeed -= bonus;
-        }*/
+
         self.EatFeedAnimation()
     }
     func EatEnemy(enemy: Enemy)->Void
