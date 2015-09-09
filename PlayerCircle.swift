@@ -33,7 +33,7 @@ class PlayerCircle : Circle
         //Color
         //self.strokeColor = strokeColor;
         //self.fillColor = fillColor;
-        self.addChild(SKSpriteNode(imageNamed: "sunDot@2x.png"))
+        self.addChild(SKSpriteNode(imageNamed: "sunDot@2x0.png"))
         self.antialiased = true;
         self.name = "player";
         self.zPosition = 2;

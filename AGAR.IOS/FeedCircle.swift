@@ -22,10 +22,12 @@ class FeedCircle : Circle
         super.init(radius: radius, position: GameTools.RandomPointScene(frame))
         self.strokeColor = UIColor(red: 236.0 / 255, green: 216.0 / 255, blue: 118.0 / 255, alpha: 1.0);
         //self.fillColor = UIColor(red: 1.0 / 255, green: 95.0 / 255, blue: 66.0 / 255, alpha: 1.0);
-        self.addChild(SKSpriteNode(imageNamed: "satelliteL.png"))
+        self.addChild(SKSpriteNode(imageNamed: "asteroids.png"))
         self.antialiased = true;
         self.zPosition = 1;
         self.physicsBody?.categoryBitMask = GameTools.PhysicsCategory.Feed;
+        
+        setScale(0.1)
     }
 
     required init?(coder aDecoder: NSCoder) {

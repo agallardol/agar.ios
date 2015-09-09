@@ -146,13 +146,18 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     }
 
     func didBeginContact(contact: SKPhysicsContact) {
+        
         let firstNode = contact.bodyA.node as! SKShapeNode
-        if (contact.bodyB == nil)
+        debugPrintln("contacto ");
+        
+        if (contact.bodyB.node == nil)
         {
+            debugPrintln("primero nil")
             return;
         
         }
         if (contact.bodyB.node == nil){
+            debugPrintln("segundo nil")
             return
         }
         let secondNode = contact.bodyB.node as! SKShapeNode
@@ -275,9 +280,6 @@ class Playing: SKScene, SKPhysicsContactDelegate {
             var final : CGPoint = CGPoint(x: self.Player!.position.x +  self.touchPosition!.x, y: self.Player!.position.y + self.touchPosition!.y)
     
             self.Player!.Move(final)
-            
-           // self.playButtonLabel.position.x = self.Player!.position.x - 0
-            //self.playButtonLabel.position.y = self.Player!.position.y + 0
             //debugPrintln(self.Player!.position)
         }
        // debugPrintln(Playing.Feeds.count)
