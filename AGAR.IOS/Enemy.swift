@@ -17,13 +17,13 @@ class Enemy : Circle
     
     convenience init(world: SKShapeNode, player: SKShapeNode)
     {
-        var radius: CGFloat = CGFloat(Float(arc4random()) % 200) + Enemy.DEFAULT_SIZE / 2;
+        var radius: CGFloat = CGFloat(Float(arc4random()) % 50) + Enemy.DEFAULT_SIZE / 2;
         self.init(radius: /*radius*/40.0, world: world, player: player, fillColor: Circle.getRandomColor(), strokeColor: Circle.getRandomColor());
     }
     
     convenience init(world: SKShapeNode, player: SKShapeNode, fillColor: UIColor, strokeColor: UIColor)
     {
-        var radius: CGFloat = CGFloat(Float(arc4random()) % 200) + Enemy.DEFAULT_SIZE / 2;
+        var radius: CGFloat = CGFloat(Float(arc4random()) % 50) + Enemy.DEFAULT_SIZE / 2;
         self.init(radius: /*radius*/40.0, world: world, player: player, fillColor: fillColor, strokeColor: strokeColor);
     }
     
@@ -68,7 +68,7 @@ class Enemy : Circle
         self.runAction(moveEnemy, completion: {self.OnMoveEnemyEnd(self.World!.frame, source: self, target: self.Player!)});
         
         self.JellyAnimation()
-        self.GrowUp(CGFloat(Float(arc4random()) % 200))
+        self.GrowUp(CGFloat(Float(arc4random()) % 50))
     }
     
     func GetRandomPath(frame: CGRect, source: SKShapeNode, target: SKShapeNode) -> CGPath

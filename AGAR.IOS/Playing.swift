@@ -22,7 +22,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     static var Feeds: Set<FeedCircle> = []
     static var endGame: Bool = false
     var Player: PlayerCircle? = nil;
-    static var Enemys: [Enemy] = []
+    static var Enemys: Set<Enemy> = []
     
     var playButtonLabel = SKLabelNode(fontNamed:"Futura")
 
@@ -97,7 +97,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         for i in 1..<enemyQuantity
         {
             var enemy: Enemy = Enemy(world: self.World!, player: self.Player!)
-            Playing.Enemys.append(enemy)
+            Playing.Enemys.insert(enemy)
             self.World!.addChild(enemy)
         }
         // Initializing FeedCircles
@@ -165,7 +165,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         let firstNode = contact.bodyA.node as! SKShapeNode
         debugPrintln("contacto ");
         
-        if (contact.bodyB.node == nil)
+        if (contact.bodyA.node == nil)
         {
             debugPrintln("primero nil")
             return;
@@ -231,7 +231,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
                     case GameTools.PhysicsCategory.Enemy:
                         //logica choque enemy con enemy
                         var enemyCircleA: Enemy = (firstBody.node as! Enemy)
-                        var enemyCircleB: Enemy = (firstBody.node as! Enemy)
+                        var enemyCircleB: Enemy = (secondBody.node as! Enemy)
                         
                         if(enemyCircleA.radius > enemyCircleB.radius)
                         {
@@ -285,6 +285,14 @@ class Playing: SKScene, SKPhysicsContactDelegate {
             Playing.Feeds.insert(feed);
         //    debugPrint(feed.position)
             self.World!.addChild(feed);
+            
+        }
+        
+        if ( Playing.Enemys.count < enemyQuantity)
+        {
+            var enemy: Enemy = Enemy(world: self.World!, player: self.Player!)
+            Playing.Enemys.insert(enemy)
+            self.World!.addChild(enemy)
             
         }
         

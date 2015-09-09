@@ -120,6 +120,7 @@ class Circle : SKShapeNode
     func EatEnemy(enemy: Enemy)->Void
     {
         enemy.removeFromParent();
+        Playing.Enemys.remove(enemy);
         self.GrowUp(enemy.radius / 2);
     }
 }
