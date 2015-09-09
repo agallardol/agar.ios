@@ -30,8 +30,24 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         var size = CGSize(width: 2500, height: 3500);
         super.init(size: size);
         
-        self.backgroundColor = UIColor(red: 232.0 / 255, green: 84.0 / 255, blue: 75.0 / 255, alpha: 1.0);
-        
+        self.backgroundColor = UIColor(red: 232.0 / 255, green: 84.0 / 255, blue: 75.0 / 255, alpha: 0.0);
+        /*var pe: SKEmitterNode = SKEmitterNode()
+        pe.
+        pe.particleTexture = SKTexture(imageNamed: "spark.png")
+        pe.particleBirthRate = 50
+        pe.particleLifetime = 1.0
+        pe.particleLifetimeRange = 2.0
+        pe.particlePositionRange = CGVector(dx: 1000.0, dy: 1000.0)
+        pe.particleRotationRange = 0.39
+        pe.particleRotation = 3.548
+        pe.particleScale = 0.07
+        pe.particleScaleRange = 0.09
+        pe.particleAlpha = 0
+        pe.particleAlphaRange = 0.2
+        pe.particleAlphaSpeed = 29
+        pe.particleBlendMode = SKBlendMode.Add
+        pe.particleColorBlendFactor = 1*/
+
         self.anchorPoint = CGPointMake (0.5,0.5);
         
         //Initializing PlayerCircle
@@ -64,7 +80,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         playButtonLabel.fontSize = 25;
         playButtonLabel.fontColor = SKColor(red: 236.0 / 255,
             green: 206.0 / 255,
-            blue: 118.0 / 255,
+            blue: 218.0 / 255,
             alpha: 1.0);
         playButtonLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center;
         playButtonLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center;
@@ -145,13 +161,18 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     }
 
     func didBeginContact(contact: SKPhysicsContact) {
+        
         let firstNode = contact.bodyA.node as! SKShapeNode
-        if (contact.bodyB == nil)
+        debugPrintln("contacto ");
+        
+        if (contact.bodyB.node == nil)
         {
+            debugPrintln("primero nil")
             return;
         
         }
         if (contact.bodyB.node == nil){
+            debugPrintln("segundo nil")
             return
         }
         let secondNode = contact.bodyB.node as! SKShapeNode
@@ -274,13 +295,8 @@ class Playing: SKScene, SKPhysicsContactDelegate {
             var final : CGPoint = CGPoint(x: self.Player!.position.x +  self.touchPosition!.x, y: self.Player!.position.y + self.touchPosition!.y)
     
             self.Player!.Move(final)
-            
-           // self.playButtonLabel.position.x = self.Player!.position.x - 0
-            //self.playButtonLabel.position.y = self.Player!.position.y + 0
             //debugPrintln(self.Player!.position)
         }
-       // debugPrintln(Playing.Feeds.count)
-        debugPrintln(Player?.radius)
         if (Player!.radius >= 80)
         {
             winGame()

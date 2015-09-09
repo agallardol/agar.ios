@@ -50,6 +50,11 @@ class GameTools
         static let Enemy    : UInt32 = 2
         static let Feed   : UInt32 = 3
     }
+    static let Planets: [String] = ["sunDot@2x1.png","sunDot@2x2.png","sunDot@2x3.png","sunDot@2x4.png","sunDot@2x5.png","sunDot@2x6.png","satelliteL.png","asteroid2.png","redAsteroidL.png","greenAsteroidL.png"]
+    
+    static func getRandomPlaneSprite()->String{
+        return GameTools.Planets[Int(arc4random() % 4)]
+    }
     enum GameState {
         case Playing, Lose, Win
     }

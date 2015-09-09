@@ -33,7 +33,7 @@ class PlayerCircle : Circle
         //Color
         //self.strokeColor = strokeColor;
         //self.fillColor = fillColor;
-        self.addChild(SKSpriteNode(imageNamed: "sunDot@2x.png"))
+        self.addChild(SKSpriteNode(imageNamed: "sunDot@2x0.png"))
         self.antialiased = true;
         self.name = "player";
         self.zPosition = 2;
@@ -47,7 +47,7 @@ class PlayerCircle : Circle
         self.playerLabel!.fontSize = 25;
         self.playerLabel!.fontColor = SKColor(red: 236.0 / 255,
             green: 206.0 / 255,
-            blue: 118.0 / 255,
+            blue: 218.0 / 255,
             alpha: 1.0);
         self.playerLabel!.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center;
         self.playerLabel!.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center;

@@ -59,7 +59,7 @@ class MainMenu: SKScene {
             green: 38.0 / 255,
             blue: 55.0 / 255,
             alpha: 0.9);*/
-        let spritePlayer: SKSpriteNode = SKSpriteNode(imageNamed: "sunDot@2x.png")
+        let spritePlayer: SKSpriteNode = SKSpriteNode(imageNamed: "sunDot@2x0.png")
         spritePlayer.name = "playButtonSprite"
         playButton.addChild(spritePlayer)
         playButton.zPosition = 1

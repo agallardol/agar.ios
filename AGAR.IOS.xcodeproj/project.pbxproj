@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A2D0B7F1BA0A31B00A012AC /* sunDot@2x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2D0B791BA0A31B00A012AC /* sunDot@2x2.png */; };
+		0A2D0B801BA0A31B00A012AC /* sunDot@2x3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2D0B7A1BA0A31B00A012AC /* sunDot@2x3.png */; };
+		0A2D0B811BA0A31B00A012AC /* sunDot@2x4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2D0B7B1BA0A31B00A012AC /* sunDot@2x4.png */; };
+		0A2D0B821BA0A31B00A012AC /* sunDot@2x5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2D0B7C1BA0A31B00A012AC /* sunDot@2x5.png */; };
+		0A2D0B831BA0A31B00A012AC /* sunDot@2x6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2D0B7D1BA0A31B00A012AC /* sunDot@2x6.png */; };
+		0A2D0B861BA0A3FA00A012AC /* sunDot@2x0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2D0B841BA0A3FA00A012AC /* sunDot@2x0.png */; };
+		0A2D0B871BA0A3FA00A012AC /* sunDot@2x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2D0B851BA0A3FA00A012AC /* sunDot@2x1.png */; };
+		0A2D0B891BA0A66200A012AC /* asteroids.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2D0B881BA0A66200A012AC /* asteroids.png */; };
 		0A8BADEA1B39B5F200CDBD89 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BADE91B39B5F200CDBD89 /* Enemy.swift */; };
 		6FE2536F1B9E1DC300E66E43 /* EndGameOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2536E1B9E1DC300E66E43 /* EndGameOverlay.swift */; };
 		ACD26FFA1BA080A600B3802F /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD26FF91BA080A600B3802F /* spark.png */; };
@@ -31,8 +39,6 @@
 		ACD270271BA0836B00B3802F /* redAsteroidM.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270101BA0836B00B3802F /* redAsteroidM.png */; };
 		ACD270281BA0836B00B3802F /* redAsteroidS.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270111BA0836B00B3802F /* redAsteroidS.png */; };
 		ACD270291BA0836B00B3802F /* redDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270121BA0836B00B3802F /* redDot@2x.png */; };
-		ACD2702A1BA0836B00B3802F /* sunDot.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270131BA0836B00B3802F /* sunDot.png */; };
-		ACD2702B1BA0836B00B3802F /* sunDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270141BA0836B00B3802F /* sunDot@2x.png */; };
 		ACD2702D1BA088CB00B3802F /* satelliteL.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD2702C1BA088CB00B3802F /* satelliteL.png */; };
 		ACD2702F1BA08F7400B3802F /* Playing.sks in Resources */ = {isa = PBXBuildFile; fileRef = ACD2702E1BA08F7400B3802F /* Playing.sks */; };
 		ACD270311BA0978C00B3802F /* Background.sks in Resources */ = {isa = PBXBuildFile; fileRef = ACD270301BA0978B00B3802F /* Background.sks */; };
@@ -62,6 +68,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A2D0B791BA0A31B00A012AC /* sunDot@2x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sunDot@2x2.png"; sourceTree = "<group>"; };
+		0A2D0B7A1BA0A31B00A012AC /* sunDot@2x3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sunDot@2x3.png"; sourceTree = "<group>"; };
+		0A2D0B7B1BA0A31B00A012AC /* sunDot@2x4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sunDot@2x4.png"; sourceTree = "<group>"; };
+		0A2D0B7C1BA0A31B00A012AC /* sunDot@2x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sunDot@2x5.png"; sourceTree = "<group>"; };
+		0A2D0B7D1BA0A31B00A012AC /* sunDot@2x6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sunDot@2x6.png"; sourceTree = "<group>"; };
+		0A2D0B841BA0A3FA00A012AC /* sunDot@2x0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sunDot@2x0.png"; sourceTree = "<group>"; };
+		0A2D0B851BA0A3FA00A012AC /* sunDot@2x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sunDot@2x1.png"; sourceTree = "<group>"; };
+		0A2D0B881BA0A66200A012AC /* asteroids.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asteroids.png; sourceTree = "<group>"; };
 		0A8BADE91B39B5F200CDBD89 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		6FE2536E1B9E1DC300E66E43 /* EndGameOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndGameOverlay.swift; sourceTree = "<group>"; };
 		ACD26FF91BA080A600B3802F /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
@@ -86,8 +100,6 @@
 		ACD270101BA0836B00B3802F /* redAsteroidM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redAsteroidM.png; sourceTree = "<group>"; };
 		ACD270111BA0836B00B3802F /* redAsteroidS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redAsteroidS.png; sourceTree = "<group>"; };
 		ACD270121BA0836B00B3802F /* redDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redDot@2x.png"; sourceTree = "<group>"; };
-		ACD270131BA0836B00B3802F /* sunDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunDot.png; sourceTree = "<group>"; };
-		ACD270141BA0836B00B3802F /* sunDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sunDot@2x.png"; sourceTree = "<group>"; };
 		ACD2702C1BA088CB00B3802F /* satelliteL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = satelliteL.png; sourceTree = "<group>"; };
 		ACD2702E1BA08F7400B3802F /* Playing.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Playing.sks; sourceTree = "<group>"; };
 		ACD270301BA0978B00B3802F /* Background.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Background.sks; sourceTree = "<group>"; };
@@ -131,8 +143,16 @@
 		ACD26FFB1BA082F700B3802F /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				0A2D0B881BA0A66200A012AC /* asteroids.png */,
+				0A2D0B841BA0A3FA00A012AC /* sunDot@2x0.png */,
+				0A2D0B851BA0A3FA00A012AC /* sunDot@2x1.png */,
 				ACD2702C1BA088CB00B3802F /* satelliteL.png */,
 				ACD26FFE1BA0836B00B3802F /* asteroid2.png */,
+				0A2D0B791BA0A31B00A012AC /* sunDot@2x2.png */,
+				0A2D0B7A1BA0A31B00A012AC /* sunDot@2x3.png */,
+				0A2D0B7B1BA0A31B00A012AC /* sunDot@2x4.png */,
+				0A2D0B7C1BA0A31B00A012AC /* sunDot@2x5.png */,
+				0A2D0B7D1BA0A31B00A012AC /* sunDot@2x6.png */,
 				ACD26FFF1BA0836B00B3802F /* blackAsteroidL.png */,
 				ACD270001BA0836B00B3802F /* blackAsteroidM.png */,
 				ACD270011BA0836B00B3802F /* blackAsteroidS.png */,
@@ -153,8 +173,6 @@
 				ACD270101BA0836B00B3802F /* redAsteroidM.png */,
 				ACD270111BA0836B00B3802F /* redAsteroidS.png */,
 				ACD270121BA0836B00B3802F /* redDot@2x.png */,
-				ACD270131BA0836B00B3802F /* sunDot.png */,
-				ACD270141BA0836B00B3802F /* sunDot@2x.png */,
 				ACD26FF91BA080A600B3802F /* spark.png */,
 			);
 			name = assets;
@@ -310,18 +328,23 @@
 			files = (
 				ACD26FFA1BA080A600B3802F /* spark.png in Resources */,
 				ACD2701A1BA0836B00B3802F /* blueAsteroidM.png in Resources */,
+				0A2D0B7F1BA0A31B00A012AC /* sunDot@2x2.png in Resources */,
+				0A2D0B871BA0A3FA00A012AC /* sunDot@2x1.png in Resources */,
 				ACD2701B1BA0836B00B3802F /* blueAsteroidS.png in Resources */,
 				ACD2701C1BA0836B00B3802F /* blueDot@2x.png in Resources */,
 				ACD2701F1BA0836B00B3802F /* greenAsteroidS.png in Resources */,
 				C638E9BD1B2E6BB5009451BC /* LaunchScreen.xib in Resources */,
 				ACD270251BA0836B00B3802F /* purpleDot@2x.png in Resources */,
 				ACD270311BA0978C00B3802F /* Background.sks in Resources */,
-				ACD2702B1BA0836B00B3802F /* sunDot@2x.png in Resources */,
 				ACD2701E1BA0836B00B3802F /* greenAsteroidM.png in Resources */,
+				0A2D0B801BA0A31B00A012AC /* sunDot@2x3.png in Resources */,
+				0A2D0B831BA0A31B00A012AC /* sunDot@2x6.png in Resources */,
 				ACD270291BA0836B00B3802F /* redDot@2x.png in Resources */,
+				0A2D0B861BA0A3FA00A012AC /* sunDot@2x0.png in Resources */,
 				ACD270171BA0836B00B3802F /* blackAsteroidM.png in Resources */,
 				ACD270221BA0836B00B3802F /* purpleAsteroidL.png in Resources */,
 				ACD270181BA0836B00B3802F /* blackAsteroidS.png in Resources */,
+				0A2D0B811BA0A31B00A012AC /* sunDot@2x4.png in Resources */,
 				C638E9BA1B2E6BB5009451BC /* Images.xcassets in Resources */,
 				ACD270201BA0836B00B3802F /* greenDot.png in Resources */,
 				ACD270191BA0836B00B3802F /* blueAsteroidL.png in Resources */,
@@ -333,9 +356,10 @@
 				ACD270231BA0836B00B3802F /* purpleAsteroidM.png in Resources */,
 				ACD2701D1BA0836B00B3802F /* greenAsteroidL.png in Resources */,
 				ACD270151BA0836B00B3802F /* asteroid2.png in Resources */,
+				0A2D0B891BA0A66200A012AC /* asteroids.png in Resources */,
 				ACD2702F1BA08F7400B3802F /* Playing.sks in Resources */,
+				0A2D0B821BA0A31B00A012AC /* sunDot@2x5.png in Resources */,
 				ACD270261BA0836B00B3802F /* redAsteroidL.png in Resources */,
-				ACD2702A1BA0836B00B3802F /* sunDot.png in Resources */,
 				C638E9B11B2E6BB5009451BC /* MainMenu.sks in Resources */,
 				C638E9B81B2E6BB5009451BC /* Main.storyboard in Resources */,
 				ACD270161BA0836B00B3802F /* blackAsteroidL.png in Resources */,

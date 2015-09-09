@@ -34,7 +34,7 @@ class Enemy : Circle
         self.Player = player
 
         super.init(radius: radius, position: GameTools.RandomPointScene(self.World!.frame))
-        self.addChild(SKSpriteNode(imageNamed: /*GameTools.getRandomPlaneSprite()*/ "sunDot@2x.png"))
+        self.addChild(SKSpriteNode(imageNamed: GameTools.getRandomPlaneSprite())) //"sunDot@2x0.png"))
 
         //self.circleSpeed = Enemy.MAX_SPEED;
         
@@ -68,6 +68,7 @@ class Enemy : Circle
         self.runAction(moveEnemy, completion: {self.OnMoveEnemyEnd(self.World!.frame, source: self, target: self.Player!)});
         
         self.JellyAnimation()
+        self.GrowUp(CGFloat(Float(arc4random()) % 200))
     }
     
     func GetRandomPath(frame: CGRect, source: SKShapeNode, target: SKShapeNode) -> CGPath
