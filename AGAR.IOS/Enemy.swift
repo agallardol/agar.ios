@@ -18,13 +18,13 @@ class Enemy : Circle
     convenience init(world: SKShapeNode, player: SKShapeNode)
     {
         var radius: CGFloat = CGFloat(Float(arc4random()) % 200) + Enemy.DEFAULT_SIZE / 2;
-        self.init(radius: radius, world: world, player: player, fillColor: Circle.getRandomColor(), strokeColor: Circle.getRandomColor());
+        self.init(radius: /*radius*/40.0, world: world, player: player, fillColor: Circle.getRandomColor(), strokeColor: Circle.getRandomColor());
     }
     
     convenience init(world: SKShapeNode, player: SKShapeNode, fillColor: UIColor, strokeColor: UIColor)
     {
         var radius: CGFloat = CGFloat(Float(arc4random()) % 200) + Enemy.DEFAULT_SIZE / 2;
-        self.init(radius: radius, world: world, player: player, fillColor: fillColor, strokeColor: strokeColor);
+        self.init(radius: /*radius*/40.0, world: world, player: player, fillColor: fillColor, strokeColor: strokeColor);
     }
     
     init(radius: CGFloat, world: SKShapeNode, player: SKShapeNode, fillColor: UIColor, strokeColor: UIColor)
@@ -34,7 +34,7 @@ class Enemy : Circle
         self.Player = player
 
         super.init(radius: radius, position: GameTools.RandomPointScene(self.World!.frame))
-        self.addChild(SKSpriteNode(imageNamed: GameTools.getRandomPlaneSprite()))
+        self.addChild(SKSpriteNode(imageNamed: /*GameTools.getRandomPlaneSprite()*/ "sunDot@2x.png"))
 
         //self.circleSpeed = Enemy.MAX_SPEED;
         

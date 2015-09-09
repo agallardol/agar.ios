@@ -92,7 +92,7 @@ class MainMenu: SKScene {
             blue: 55.0 / 255,
             alpha: 0.9);*/
         
-        tempCircle.addChild(SKSpriteNode(imageNamed: "redDot@2x.png"))
+        tempCircle.addChild(SKSpriteNode(texture: SKTexture(imageNamed: "redDot@2x.png")))
         tempCircle.antialiased = true;
         self.addChild(tempCircle);
         
@@ -165,6 +165,7 @@ class MainMenu: SKScene {
                 var skView = self.view as SKView!
                 scene.scaleMode = SKSceneScaleMode.AspectFill;
                 skView.presentScene(scene, transition: SKTransition.crossFadeWithDuration(2));
+                
             }
         }
     }
