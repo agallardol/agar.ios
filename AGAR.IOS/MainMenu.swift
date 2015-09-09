@@ -161,7 +161,7 @@ class MainMenu: SKScene {
             if(node.name == "playButtonSprite")
             {
                 println("Play Touch");
-                let scene = Playing(width: 1000, height: 1000);
+                let scene = Playing(width: 2500, height: 3500);
                 var skView = self.view as SKView!
                 scene.scaleMode = SKSceneScaleMode.AspectFill;
                 skView.presentScene(scene, transition: SKTransition.crossFadeWithDuration(2));

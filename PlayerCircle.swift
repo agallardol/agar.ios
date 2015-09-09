@@ -74,8 +74,8 @@ class PlayerCircle : Circle
         
         var normalizedVector: CGVector = CGVectorMake(xVect / norm,  yVect / norm)
         
-        var dx = normalizedVector.dx*self.circleSpeed()
-        var dy = normalizedVector.dy*self.circleSpeed()
+        var dx = normalizedVector.dx*self.getCircleSpeed()
+        var dy = normalizedVector.dy*self.getCircleSpeed()
         
         var newPosition:CGPoint = CGPoint(x: currentPosition.x + dx, y: currentPosition.y + dy)
         

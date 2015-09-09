@@ -19,7 +19,7 @@ class FeedCircle : Circle
     
     init(radius: CGFloat, frame: CGRect)
     {
-        super.init(radius: radius, position: GameTools.RandomPoint(frame))
+        super.init(radius: radius, position: GameTools.RandomPointScene(frame))
         self.strokeColor = UIColor(red: 236.0 / 255, green: 216.0 / 255, blue: 118.0 / 255, alpha: 1.0);
         //self.fillColor = UIColor(red: 1.0 / 255, green: 95.0 / 255, blue: 66.0 / 255, alpha: 1.0);
         self.addChild(SKSpriteNode(imageNamed: "satelliteL.png"))
