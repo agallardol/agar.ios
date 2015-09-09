@@ -27,7 +27,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     var playButtonLabel = SKLabelNode(fontNamed:"Futura")
 
     init(width: CGFloat, height: CGFloat) {
-        var size = CGSize(width: width, height: height);
+        var size = CGSize(width: 2500, height: 3500);
         super.init(size: size);
         
         self.backgroundColor = UIColor(red: 232.0 / 255, green: 84.0 / 255, blue: 75.0 / 255, alpha: 1.0);
@@ -41,9 +41,16 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         self.World = SKShapeNode(rectOfSize: size);
         self.World!.name = "world";
         self.World?.position = CGPoint(x: self.frame.midX, y: self.frame.midY);
-        self.World?.fillColor = UIColor(red: 70.0 / 255, green: 183.0 / 255, blue: 250.0 / 255, alpha: 1.0);
-        self.World?.strokeColor = UIColor(red: 100.0 / 255, green: 150.0 / 255, blue: 20.0 / 255, alpha: 1.0);
-
+        self.World?.fillColor = UIColor(red: 0.0 / 255, green: 0.0 / 255, blue: 0.0 / 255, alpha: 1.0);
+        self.World?.strokeColor = UIColor(red: 255.0 / 255, green: 255.0 / 255, blue: 255.0 / 255, alpha: 1.0);
+        
+        let burstPath = NSBundle.mainBundle().pathForResource("Background",
+            ofType: "sks")
+        
+        let burstNode = NSKeyedUnarchiver.unarchiveObjectWithFile(burstPath!)
+            as! SKEmitterNode
+        self.addChild(burstNode)
+        //self.World!.addChild(burstNode)
         self.addChild(self.World!);
 
         self.Player = PlayerCircle(world: self.World!);

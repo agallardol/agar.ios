@@ -48,17 +48,20 @@ class MainMenu: SKScene {
         background.zPosition = -2;
         self.addChild(background);*/
         
-        playButton.name = "playButton";
+        playButton.name = "playButtonShape";
         playButton.setScale(currentScale);
-        playButton.strokeColor = SKColor(red: 236.0 / 255,
-            green: 206.0 / 255,
-            blue: 118.0 / 255,
+        playButton.strokeColor = SKColor(red: 0 / 255,
+            green: 0 / 255,
+            blue: 0 / 255,
             alpha: 1.0);
         
-        playButton.fillColor = UIColor(red: 86.0 / 255,
+        /*playButton.fillColor = UIColor(red: 86.0 / 255,
             green: 38.0 / 255,
             blue: 55.0 / 255,
-            alpha: 0.9);
+            alpha: 0.9);*/
+        let spritePlayer: SKSpriteNode = SKSpriteNode(imageNamed: "sunDot@2x.png")
+        spritePlayer.name = "playButtonSprite"
+        playButton.addChild(spritePlayer)
         playButton.zPosition = 1
         playButton.position = CGPoint(x:(CGRectGetMaxX(self.frame) - CGRectGetMidX(self.frame)/2), y:CGRectGetMidY(self.frame) - self.frame.height/4);
         playButton.antialiased = true;
@@ -84,10 +87,12 @@ class MainMenu: SKScene {
             green: 206.0 / 255,
             blue: 118.0 / 255,
             alpha: 1.0);
-        tempCircle.fillColor = SKColor(red: 86.0 / 255,
+        /*tempCircle.fillColor = SKColor(red: 86.0 / 255,
             green: 38.0 / 255,
             blue: 55.0 / 255,
-            alpha: 0.9);
+            alpha: 0.9);*/
+        
+        tempCircle.addChild(SKSpriteNode(texture: SKTexture(imageNamed: "redDot@2x.png")))
         tempCircle.antialiased = true;
         self.addChild(tempCircle);
         
@@ -164,13 +169,14 @@ class MainMenu: SKScene {
             let location = touch.locationInNode(self)
             var node = self.nodeAtPoint(location);
             //println(node.name);
-            if(node.name == "playButton")
+            if(node.name == "playButtonSprite")
             {
                 println("Play Touch");
                 let scene = Playing(width: 2500, height: 3500);
                 var skView = self.view as SKView!
                 scene.scaleMode = SKSceneScaleMode.AspectFill;
                 skView.presentScene(scene, transition: SKTransition.crossFadeWithDuration(2));
+                
             }
         }
     }
