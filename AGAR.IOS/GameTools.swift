@@ -32,9 +32,6 @@ class GameTools
         mod = Int(arc4random()) % Int(bounds.height);
         var yvalue = mod - Int(bounds.height / 2);
         
-        debugPrint(xvalue)
-        debugPrint(" ")
-        debugPrintln(yvalue)
         
         return CGPoint(x: (xvalue ), y: (yvalue ));
         
@@ -52,5 +49,8 @@ class GameTools
         static let Player       : UInt32 = 1
         static let Enemy    : UInt32 = 2
         static let Feed   : UInt32 = 3
+    }
+    enum GameState {
+        case Playing, Lose, Win
     }
 }

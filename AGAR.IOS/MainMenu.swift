@@ -19,12 +19,12 @@ class MainMenu: SKScene {
     var playButton = SKShapeNode(circleOfRadius: 60);
     var myLabel = SKLabelNode(fontNamed:"Futura")
     var playButtonLabel = SKLabelNode(fontNamed:"Futura")
-    var isEndGame: Bool = false;
+    var isEndGame: GameTools.GameState = GameTools.GameState.Playing;
     var points: Int = 0;
-    func settt(isEndGame: Bool, points: Int)
+    func settt(isEndGame: GameTools.GameState, points: Int)
     {
         //self.init()
-        self.isEndGame = true
+        self.isEndGame = isEndGame
         self.points = points
     }
     override func didMoveToView(view: SKView) {
@@ -91,20 +91,32 @@ class MainMenu: SKScene {
         tempCircle.antialiased = true;
         self.addChild(tempCircle);
         
-        if(self.isEndGame)
+        switch (self.isEndGame)
         {
+        case GameTools.GameState.Lose:
             
             (self.childNodeWithName("loseLabel") as! SKLabelNode).hidden = false;
+            (self.childNodeWithName("loseLabel") as! SKLabelNode).text = "Perdiste"
             (self.childNodeWithName("pointsLabel") as! SKLabelNode).hidden = false;
             (self.childNodeWithName("pointsNumberLabel") as! SKLabelNode).hidden = false;
             (self.childNodeWithName("pointsNumberLabel") as! SKLabelNode).text = String(self.points)
             playButtonLabel.text = "ReJugar";
-        }
-        else {
+            break;
+        case GameTools.GameState.Win:
+            
+            (self.childNodeWithName("loseLabel") as! SKLabelNode).hidden = false;
+            (self.childNodeWithName("loseLabel") as! SKLabelNode).text = "¡GANASTE!"
+            (self.childNodeWithName("pointsLabel") as! SKLabelNode).hidden = false;
+            (self.childNodeWithName("pointsNumberLabel") as! SKLabelNode).hidden = false;
+            (self.childNodeWithName("pointsNumberLabel") as! SKLabelNode).text = String(self.points)
+            playButtonLabel.text = "ReJugar";
+            break;
+        case GameTools.GameState.Playing:
             (self.childNodeWithName("loseLabel") as! SKLabelNode).hidden = true;
             (self.childNodeWithName("pointsLabel") as! SKLabelNode).hidden = true;
             (self.childNodeWithName("pointsNumberLabel") as! SKLabelNode).hidden = true;
             playButtonLabel.text = "Jugar";
+            break;
         }
         
         
@@ -127,7 +139,6 @@ class MainMenu: SKScene {
         //var label = button.childNodeWithName("playButtonLabel") as! SKLabelNode;
         if ((button.frame.width / 2) < self.radiusMax)
         {
-            println("Agrandando");
             self.currentScale += 0.05;
             button.setScale(currentScale);
             //label.fontSize += 4;
