@@ -32,7 +32,7 @@ class Enemy : Circle
         
         self.World = world
         self.Player = player
-        super.init(radius: radius, position: GameTools.RandomPoint(self.World!.frame))
+        super.init(radius: radius, position: GameTools.RandomPointScene(self.World!.frame))
         
         //self.circleSpeed = Enemy.MAX_SPEED;
         
@@ -57,7 +57,7 @@ class Enemy : Circle
         self.enemyLabel!.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center;
         self.enemyLabel!.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center;
         self.enemyLabel!.userInteractionEnabled = true;
-        self.position = RandomPoint(self.World!.frame)
+        self.position = GameTools.RandomPoint(self.World!.frame)
         self.addChild(enemyLabel!);
         
         var moveEnemy = SKAction.followPath(GetRandomPath(self.World!.frame, source: self, target: self.Player!), asOffset: false, orientToPath: true, speed: self.getCircleSpeed() * 8);
@@ -72,7 +72,7 @@ class Enemy : Circle
         
         var randomPath: UIBezierPath = UIBezierPath();
         randomPath.moveToPoint(source.position);
-        randomPath.addCurveToPoint(target.position, controlPoint1: RandomPoint(frame), controlPoint2: RandomPoint(frame));
+        randomPath.addCurveToPoint(target.position, controlPoint1: GameTools.RandomPoint(frame), controlPoint2: GameTools.RandomPoint(frame));
         return randomPath.CGPath;
     }
     
@@ -80,10 +80,10 @@ class Enemy : Circle
     {
         var randomPath: UIBezierPath = UIBezierPath();
         randomPath.moveToPoint(source.position);
-        randomPath.addCurveToPoint(RandomPoint(frame), controlPoint1: RandomPoint(frame), controlPoint2: RandomPoint(frame));
+        randomPath.addCurveToPoint(GameTools.RandomPointScene(frame), controlPoint1: GameTools.RandomPointScene(frame), controlPoint2: GameTools.RandomPointScene(frame));
         return randomPath.CGPath
     }
-    
+    /*
     func RandomPoint(bounds: CGRect)->CGPoint
     {
         /*var mod = Int(arc4random()) % Int(CGRectGetMaxX(bounds));
@@ -99,7 +99,7 @@ class Enemy : Circle
         var yvalue = Int(bounds.minY) + mod;
         
         return CGPoint(x: xvalue, y: yvalue);
-    }
+    }*/
     
     func OnMoveEnemyEnd(frame: CGRect, source: SKShapeNode, target: SKShapeNode) -> Void
     {

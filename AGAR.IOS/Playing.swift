@@ -49,6 +49,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         self.World!.addChild(self.Player!);
         
         //agregar enemigos
+        Playing.Enemys = []
         for i in 1..<enemyQuantity
         {
             var enemy: Enemy = Enemy(world: self.World!, player: self.Player!)
@@ -56,7 +57,8 @@ class Playing: SKScene, SKPhysicsContactDelegate {
             self.World!.addChild(enemy)
         }
         // Initializing FeedCircles
-
+        
+        Playing.Feeds = []
         for i in 1..<feedQuantity
         {
             var feed: FeedCircle = FeedCircle(frame: self.World!.frame);
@@ -228,19 +230,25 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         }
     }
     override func update(currentTime: CFTimeInterval) {
+        if ( Playing.Feeds.count < feedQuantity)
+        {
+            var feed: FeedCircle = FeedCircle(frame: self.World!.frame);
+            Playing.Feeds.insert(feed);
+        //    debugPrint(feed.position)
+            self.World!.addChild(feed);
+            
+        }
+        
         if (moving)
         {           
             var final : CGPoint = CGPoint(x: self.Player!.position.x +  self.touchPosition!.x, y: self.Player!.position.y + self.touchPosition!.y)
     
             self.Player!.Move(final)
+            //debugPrintln(self.Player!.position)
         }
-        if ( Playing.Feeds.count < feedQuantity)
-        {
-            var feed: FeedCircle = FeedCircle(frame: self.World!.frame);
-            Playing.Feeds.insert(feed);
-            self.World!.addChild(feed);
+       // debugPrintln(Playing.Feeds.count)
         
-        }
+      
     }
     func gameOver(){
         if let scene = MainMenu.unarchiveFromFile("MainMenu") as? MainMenu {

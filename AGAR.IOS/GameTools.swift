@@ -24,6 +24,23 @@ class GameTools
     
     }
     
+    static func RandomPointScene(bounds: CGRect)->CGPoint
+    {
+        var mod = Int(arc4random()) % Int(bounds.width);
+        var xvalue = mod - Int(bounds.width / 2);
+        
+        mod = Int(arc4random()) % Int(bounds.height);
+        var yvalue = mod - Int(bounds.height / 2);
+        
+        debugPrint(xvalue)
+        debugPrint(" ")
+        debugPrintln(yvalue)
+        
+        return CGPoint(x: (xvalue ), y: (yvalue ));
+        
+        
+    }
+    
     static func centerOnNode(node: SKNode)->Void
     {
         var cameraPositionInScene: CGPoint = node.scene!.convertPoint(node.position, fromNode: node.parent!);

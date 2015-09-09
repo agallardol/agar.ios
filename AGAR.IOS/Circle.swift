@@ -113,7 +113,6 @@ class Circle : SKShapeNode
     func GrowUp(bonus: CGFloat)->Void
     {
         self.setScale((self.radius + bonus) / self.originalRadius)
-        debugPrintln((self.radius + bonus) / self.originalRadius)
         self.radius += bonus;
 
         self.EatFeedAnimation()
