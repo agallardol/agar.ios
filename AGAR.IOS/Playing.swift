@@ -21,6 +21,7 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     var World: SKShapeNode? = nil;
     static var Feeds: Set<FeedCircle> = []
     static var endGame: Bool = false
+
     var Player: PlayerCircle? = nil;
     static var Enemys: [Enemy] = []
     
@@ -29,8 +30,8 @@ class Playing: SKScene, SKPhysicsContactDelegate {
     init(width: CGFloat, height: CGFloat) {
         var size = CGSize(width: 2500, height: 3500);
         super.init(size: size);
-        
-        self.backgroundColor = UIColor(red: 232.0 / 255, green: 84.0 / 255, blue: 75.0 / 255, alpha: 1.0);
+        Playing.endGame = false
+        self.backgroundColor = UIColor(red: 232.0 / 255, green: 84.0 / 255, blue: 75.0 / 255, alpha: 0.0);
         
         self.anchorPoint = CGPointMake (0.5,0.5);
         
@@ -62,9 +63,9 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         playButtonLabel.name = "score";
         
         playButtonLabel.fontSize = 25;
-        playButtonLabel.fontColor = SKColor(red: 236.0 / 255,
-            green: 206.0 / 255,
-            blue: 118.0 / 255,
+        playButtonLabel.fontColor = SKColor(red: 255.0 / 255,
+            green: 255.0 / 255,
+            blue: 255.0 / 255,
             alpha: 1.0);
         playButtonLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center;
         playButtonLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center;
@@ -281,8 +282,11 @@ class Playing: SKScene, SKPhysicsContactDelegate {
         }
        // debugPrintln(Playing.Feeds.count)
         debugPrintln(Player?.radius)
-        if (Player!.radius >= 80)
+        
+        
+        if ((Player!.radius >= 80) && !Playing.endGame)
         {
+            Playing.endGame = true
             winGame()
         }
     
