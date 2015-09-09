@@ -64,7 +64,7 @@ class Enemy : Circle
         self.position = GameTools.RandomPoint(self.World!.frame)
         self.addChild(enemyLabel!);
         
-        var moveEnemy = SKAction.followPath(GetRandomPath(self.World!.frame, source: self, target: self.Player!), asOffset: false, orientToPath: true, speed: self.getCircleSpeed() * 8);
+        var moveEnemy = SKAction.followPath(GetRandomPath(self.World!.frame, source: self, target: self.Player!), asOffset: false, orientToPath: true, speed: self.getCircleSpeed() * 13);
         self.runAction(moveEnemy, completion: {self.OnMoveEnemyEnd(self.World!.frame, source: self, target: self.Player!)});
         
         self.JellyAnimation()
@@ -114,16 +114,16 @@ class Enemy : Circle
         {
             if(Playing.Feeds.count != 0)
             {
-                moveEnemy = SKAction.followPath( GetRandomPath(self.World!.frame, source: self, target: Playing.Feeds.first! ), asOffset: false, orientToPath: true, speed: self.getCircleSpeed() * 8)
+                moveEnemy = SKAction.followPath( GetRandomPath(self.World!.frame, source: self, target: Playing.Feeds.first! ), asOffset: false, orientToPath: true, speed: self.getCircleSpeed() * 13)
             }
             else
             {
-                moveEnemy = SKAction.followPath( GetRandomPath(self.World!.frame, source: self), asOffset: false, orientToPath: true,  speed: self.getCircleSpeed() * 8)
+                moveEnemy = SKAction.followPath( GetRandomPath(self.World!.frame, source: self), asOffset: false, orientToPath: true,  speed: self.getCircleSpeed() * 13)
             }
         }
         else
         {
-            moveEnemy = SKAction.followPath( GetRandomPath(self.World!.frame, source: self, target: self.Player!), asOffset: false, orientToPath: true, speed: self.getCircleSpeed() * 8)
+            moveEnemy = SKAction.followPath( GetRandomPath(self.World!.frame, source: self, target: self.Player!), asOffset: false, orientToPath: true, speed: self.getCircleSpeed() * 13)
         }
         self.runAction(moveEnemy, completion: {self.OnMoveEnemyEnd(self.World!.frame, source: self, target: self.Player!)});
     }
