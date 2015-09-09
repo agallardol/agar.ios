@@ -9,6 +9,31 @@
 /* Begin PBXBuildFile section */
 		0A8BADEA1B39B5F200CDBD89 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BADE91B39B5F200CDBD89 /* Enemy.swift */; };
 		6FE2536F1B9E1DC300E66E43 /* EndGameOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2536E1B9E1DC300E66E43 /* EndGameOverlay.swift */; };
+		ACD26FFA1BA080A600B3802F /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD26FF91BA080A600B3802F /* spark.png */; };
+		ACD270151BA0836B00B3802F /* asteroid2.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD26FFE1BA0836B00B3802F /* asteroid2.png */; };
+		ACD270161BA0836B00B3802F /* blackAsteroidL.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD26FFF1BA0836B00B3802F /* blackAsteroidL.png */; };
+		ACD270171BA0836B00B3802F /* blackAsteroidM.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270001BA0836B00B3802F /* blackAsteroidM.png */; };
+		ACD270181BA0836B00B3802F /* blackAsteroidS.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270011BA0836B00B3802F /* blackAsteroidS.png */; };
+		ACD270191BA0836B00B3802F /* blueAsteroidL.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270021BA0836B00B3802F /* blueAsteroidL.png */; };
+		ACD2701A1BA0836B00B3802F /* blueAsteroidM.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270031BA0836B00B3802F /* blueAsteroidM.png */; };
+		ACD2701B1BA0836B00B3802F /* blueAsteroidS.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270041BA0836B00B3802F /* blueAsteroidS.png */; };
+		ACD2701C1BA0836B00B3802F /* blueDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270051BA0836B00B3802F /* blueDot@2x.png */; };
+		ACD2701D1BA0836B00B3802F /* greenAsteroidL.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270061BA0836B00B3802F /* greenAsteroidL.png */; };
+		ACD2701E1BA0836B00B3802F /* greenAsteroidM.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270071BA0836B00B3802F /* greenAsteroidM.png */; };
+		ACD2701F1BA0836B00B3802F /* greenAsteroidS.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270081BA0836B00B3802F /* greenAsteroidS.png */; };
+		ACD270201BA0836B00B3802F /* greenDot.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270091BA0836B00B3802F /* greenDot.png */; };
+		ACD270211BA0836B00B3802F /* greenDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD2700A1BA0836B00B3802F /* greenDot@2x.png */; };
+		ACD270221BA0836B00B3802F /* purpleAsteroidL.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD2700B1BA0836B00B3802F /* purpleAsteroidL.png */; };
+		ACD270231BA0836B00B3802F /* purpleAsteroidM.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD2700C1BA0836B00B3802F /* purpleAsteroidM.png */; };
+		ACD270241BA0836B00B3802F /* purpleAsteroidS.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD2700D1BA0836B00B3802F /* purpleAsteroidS.png */; };
+		ACD270251BA0836B00B3802F /* purpleDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD2700E1BA0836B00B3802F /* purpleDot@2x.png */; };
+		ACD270261BA0836B00B3802F /* redAsteroidL.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD2700F1BA0836B00B3802F /* redAsteroidL.png */; };
+		ACD270271BA0836B00B3802F /* redAsteroidM.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270101BA0836B00B3802F /* redAsteroidM.png */; };
+		ACD270281BA0836B00B3802F /* redAsteroidS.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270111BA0836B00B3802F /* redAsteroidS.png */; };
+		ACD270291BA0836B00B3802F /* redDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270121BA0836B00B3802F /* redDot@2x.png */; };
+		ACD2702A1BA0836B00B3802F /* sunDot.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270131BA0836B00B3802F /* sunDot.png */; };
+		ACD2702B1BA0836B00B3802F /* sunDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD270141BA0836B00B3802F /* sunDot@2x.png */; };
+		ACD2702D1BA088CB00B3802F /* satelliteL.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD2702C1BA088CB00B3802F /* satelliteL.png */; };
 		C611DE811B2FCDCE00B6F863 /* Playing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611DE801B2FCDCE00B6F863 /* Playing.swift */; };
 		C611DE831B2FD2D600B6F863 /* FeedCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611DE821B2FD2D600B6F863 /* FeedCircle.swift */; };
 		C638E9AF1B2E6BB5009451BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C638E9AE1B2E6BB5009451BC /* AppDelegate.swift */; };
@@ -37,6 +62,31 @@
 /* Begin PBXFileReference section */
 		0A8BADE91B39B5F200CDBD89 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		6FE2536E1B9E1DC300E66E43 /* EndGameOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndGameOverlay.swift; sourceTree = "<group>"; };
+		ACD26FF91BA080A600B3802F /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		ACD26FFE1BA0836B00B3802F /* asteroid2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asteroid2.png; sourceTree = "<group>"; };
+		ACD26FFF1BA0836B00B3802F /* blackAsteroidL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackAsteroidL.png; sourceTree = "<group>"; };
+		ACD270001BA0836B00B3802F /* blackAsteroidM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackAsteroidM.png; sourceTree = "<group>"; };
+		ACD270011BA0836B00B3802F /* blackAsteroidS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackAsteroidS.png; sourceTree = "<group>"; };
+		ACD270021BA0836B00B3802F /* blueAsteroidL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueAsteroidL.png; sourceTree = "<group>"; };
+		ACD270031BA0836B00B3802F /* blueAsteroidM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueAsteroidM.png; sourceTree = "<group>"; };
+		ACD270041BA0836B00B3802F /* blueAsteroidS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueAsteroidS.png; sourceTree = "<group>"; };
+		ACD270051BA0836B00B3802F /* blueDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueDot@2x.png"; sourceTree = "<group>"; };
+		ACD270061BA0836B00B3802F /* greenAsteroidL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenAsteroidL.png; sourceTree = "<group>"; };
+		ACD270071BA0836B00B3802F /* greenAsteroidM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenAsteroidM.png; sourceTree = "<group>"; };
+		ACD270081BA0836B00B3802F /* greenAsteroidS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenAsteroidS.png; sourceTree = "<group>"; };
+		ACD270091BA0836B00B3802F /* greenDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenDot.png; sourceTree = "<group>"; };
+		ACD2700A1BA0836B00B3802F /* greenDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenDot@2x.png"; sourceTree = "<group>"; };
+		ACD2700B1BA0836B00B3802F /* purpleAsteroidL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purpleAsteroidL.png; sourceTree = "<group>"; };
+		ACD2700C1BA0836B00B3802F /* purpleAsteroidM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purpleAsteroidM.png; sourceTree = "<group>"; };
+		ACD2700D1BA0836B00B3802F /* purpleAsteroidS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purpleAsteroidS.png; sourceTree = "<group>"; };
+		ACD2700E1BA0836B00B3802F /* purpleDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purpleDot@2x.png"; sourceTree = "<group>"; };
+		ACD2700F1BA0836B00B3802F /* redAsteroidL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redAsteroidL.png; sourceTree = "<group>"; };
+		ACD270101BA0836B00B3802F /* redAsteroidM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redAsteroidM.png; sourceTree = "<group>"; };
+		ACD270111BA0836B00B3802F /* redAsteroidS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redAsteroidS.png; sourceTree = "<group>"; };
+		ACD270121BA0836B00B3802F /* redDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redDot@2x.png"; sourceTree = "<group>"; };
+		ACD270131BA0836B00B3802F /* sunDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunDot.png; sourceTree = "<group>"; };
+		ACD270141BA0836B00B3802F /* sunDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sunDot@2x.png"; sourceTree = "<group>"; };
+		ACD2702C1BA088CB00B3802F /* satelliteL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = satelliteL.png; sourceTree = "<group>"; };
 		C611DE801B2FCDCE00B6F863 /* Playing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playing.swift; sourceTree = "<group>"; };
 		C611DE821B2FD2D600B6F863 /* FeedCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCircle.swift; sourceTree = "<group>"; };
 		C638E9A91B2E6BB5009451BC /* AGAR.IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGAR.IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +124,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ACD26FFB1BA082F700B3802F /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				ACD2702C1BA088CB00B3802F /* satelliteL.png */,
+				ACD26FFE1BA0836B00B3802F /* asteroid2.png */,
+				ACD26FFF1BA0836B00B3802F /* blackAsteroidL.png */,
+				ACD270001BA0836B00B3802F /* blackAsteroidM.png */,
+				ACD270011BA0836B00B3802F /* blackAsteroidS.png */,
+				ACD270021BA0836B00B3802F /* blueAsteroidL.png */,
+				ACD270031BA0836B00B3802F /* blueAsteroidM.png */,
+				ACD270041BA0836B00B3802F /* blueAsteroidS.png */,
+				ACD270051BA0836B00B3802F /* blueDot@2x.png */,
+				ACD270061BA0836B00B3802F /* greenAsteroidL.png */,
+				ACD270071BA0836B00B3802F /* greenAsteroidM.png */,
+				ACD270081BA0836B00B3802F /* greenAsteroidS.png */,
+				ACD270091BA0836B00B3802F /* greenDot.png */,
+				ACD2700A1BA0836B00B3802F /* greenDot@2x.png */,
+				ACD2700B1BA0836B00B3802F /* purpleAsteroidL.png */,
+				ACD2700C1BA0836B00B3802F /* purpleAsteroidM.png */,
+				ACD2700D1BA0836B00B3802F /* purpleAsteroidS.png */,
+				ACD2700E1BA0836B00B3802F /* purpleDot@2x.png */,
+				ACD2700F1BA0836B00B3802F /* redAsteroidL.png */,
+				ACD270101BA0836B00B3802F /* redAsteroidM.png */,
+				ACD270111BA0836B00B3802F /* redAsteroidS.png */,
+				ACD270121BA0836B00B3802F /* redDot@2x.png */,
+				ACD270131BA0836B00B3802F /* sunDot.png */,
+				ACD270141BA0836B00B3802F /* sunDot@2x.png */,
+				ACD26FF91BA080A600B3802F /* spark.png */,
+			);
+			name = assets;
+			sourceTree = "<group>";
+		};
 		C638E9A01B2E6BB5009451BC = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +177,7 @@
 		C638E9AB1B2E6BB5009451BC /* AGAR.IOS */ = {
 			isa = PBXGroup;
 			children = (
+				ACD26FFB1BA082F700B3802F /* assets */,
 				C638E9AE1B2E6BB5009451BC /* AppDelegate.swift */,
 				C638E9B01B2E6BB5009451BC /* MainMenu.sks */,
 				C638E9B21B2E6BB5009451BC /* MainMenu.swift */,
@@ -219,10 +302,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACD26FFA1BA080A600B3802F /* spark.png in Resources */,
+				ACD2701A1BA0836B00B3802F /* blueAsteroidM.png in Resources */,
+				ACD2701B1BA0836B00B3802F /* blueAsteroidS.png in Resources */,
+				ACD2701C1BA0836B00B3802F /* blueDot@2x.png in Resources */,
+				ACD2701F1BA0836B00B3802F /* greenAsteroidS.png in Resources */,
 				C638E9BD1B2E6BB5009451BC /* LaunchScreen.xib in Resources */,
+				ACD270251BA0836B00B3802F /* purpleDot@2x.png in Resources */,
+				ACD2702B1BA0836B00B3802F /* sunDot@2x.png in Resources */,
+				ACD2701E1BA0836B00B3802F /* greenAsteroidM.png in Resources */,
+				ACD270291BA0836B00B3802F /* redDot@2x.png in Resources */,
+				ACD270171BA0836B00B3802F /* blackAsteroidM.png in Resources */,
+				ACD270221BA0836B00B3802F /* purpleAsteroidL.png in Resources */,
+				ACD270181BA0836B00B3802F /* blackAsteroidS.png in Resources */,
 				C638E9BA1B2E6BB5009451BC /* Images.xcassets in Resources */,
+				ACD270201BA0836B00B3802F /* greenDot.png in Resources */,
+				ACD270191BA0836B00B3802F /* blueAsteroidL.png in Resources */,
+				ACD270271BA0836B00B3802F /* redAsteroidM.png in Resources */,
+				ACD2702D1BA088CB00B3802F /* satelliteL.png in Resources */,
+				ACD270281BA0836B00B3802F /* redAsteroidS.png in Resources */,
+				ACD270211BA0836B00B3802F /* greenDot@2x.png in Resources */,
+				ACD270241BA0836B00B3802F /* purpleAsteroidS.png in Resources */,
+				ACD270231BA0836B00B3802F /* purpleAsteroidM.png in Resources */,
+				ACD2701D1BA0836B00B3802F /* greenAsteroidL.png in Resources */,
+				ACD270151BA0836B00B3802F /* asteroid2.png in Resources */,
+				ACD270261BA0836B00B3802F /* redAsteroidL.png in Resources */,
+				ACD2702A1BA0836B00B3802F /* sunDot.png in Resources */,
 				C638E9B11B2E6BB5009451BC /* MainMenu.sks in Resources */,
 				C638E9B81B2E6BB5009451BC /* Main.storyboard in Resources */,
+				ACD270161BA0836B00B3802F /* blackAsteroidL.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

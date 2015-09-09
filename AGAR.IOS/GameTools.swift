@@ -36,4 +36,8 @@ class GameTools
         static let Enemy    : UInt32 = 2
         static let Feed   : UInt32 = 3
     }
+    static let Planets: [String] = ["redDot@2x.png","purpleDot@2x.png","greenDot@2x.png","blueDot@2x.png"]
+    static func getRandomPlaneSprite()->String{
+        return GameTools.Planets[Int(arc4random() % 4)]
+    }
 }

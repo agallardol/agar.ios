@@ -33,12 +33,14 @@ class Enemy : Circle
         self.World = world
         self.Player = player
         super.init(radius: radius, position: GameTools.RandomPoint(self.World!.frame))
-        
+        self.addChild(SKSpriteNode(imageNamed: GameTools.getRandomPlaneSprite()))
         //self.circleSpeed = Enemy.MAX_SPEED;
         
         //Color
         self.strokeColor = strokeColor;
-        self.fillColor = fillColor;
+        //self.fillColor = fillColor;
+        
+
         self.antialiased = true;
         self.name = "enemy";
         self.zPosition = 2;

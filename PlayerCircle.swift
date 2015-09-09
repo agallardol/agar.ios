@@ -31,8 +31,9 @@ class PlayerCircle : Circle
         //self.circleSpeed = PlayerCircle.MAX_SPEED;
 
         //Color
-        self.strokeColor = strokeColor;
-        self.fillColor = fillColor;
+        //self.strokeColor = strokeColor;
+        //self.fillColor = fillColor;
+        self.addChild(SKSpriteNode(imageNamed: "sunDot@2x.png"))
         self.antialiased = true;
         self.name = "player";
         self.zPosition = 2;
