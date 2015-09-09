@@ -23,17 +23,19 @@ class Circle : SKShapeNode
     static let DEFAULT_FILL_COLOR: UIColor = UIColor(red: 86.0 / 255, green: 38.0 / 255, blue: 55.0 / 255, alpha: 1.0);
     
     static let WIGGLE_ANIMATION_KEY: String = "wiggle"
+    var originalRadius: CGFloat;
   
     private var circleSpeed : CGFloat;
     
     func getCircleSpeed() -> CGFloat
     {
-        return circleSpeed;
+        return self.circleSpeed;
     }
 
     var radius: CGFloat {
         didSet {
-            self.path = Circle.path(self.radius)
+            //self.path = Circle.path(self.radius)
+            //self.path = Circle.path(self.radius)
             
             var pendiente = (Circle.MIN_SPEED - Circle.MAX_SPEED)/(Circle.MAX_SIZE - Circle.DEFAULT_SIZE)
             self.circleSpeed = pendiente * self.radius + Circle.MAX_SPEED - Circle.DEFAULT_SIZE * pendiente;
@@ -57,10 +59,13 @@ class Circle : SKShapeNode
     }
     init(radius: CGFloat, position: CGPoint) {
         
-        self.circleSpeed = 0;
         self.radius = radius
+        self.originalRadius = self.radius
+        
+        var pendiente = (Circle.MIN_SPEED - Circle.MAX_SPEED)/(Circle.MAX_SIZE - Circle.DEFAULT_SIZE)
+        self.circleSpeed = pendiente * self.radius + Circle.MAX_SPEED - Circle.DEFAULT_SIZE * pendiente
+        
         super.init()
-
         self.path = Circle.path(self.radius)
         self.position = position
         
@@ -81,10 +86,10 @@ class Circle : SKShapeNode
     }
     func EatFeedAnimation()->Void
     {
-        let wiggleInX = SKAction.scaleXBy(1.1, y: 1.0, duration: 0.3)
-        let wiggleOutX = SKAction.scaleXBy(1.0/1.1 , y: 1.0, duration: 0.3)
-        let wiggleInY = SKAction.scaleXBy(1.0, y: 1.1, duration: 0.3)
-        let wiggleOutY = SKAction.scaleXBy(1.0, y: 1.0/1.1 , duration: 0.3)
+        let wiggleInX = SKAction.scaleXBy(1.1, y: 1.0, duration: 0.1)
+        let wiggleOutX = SKAction.scaleXBy(1.0/1.1 , y: 1.0, duration: 0.1)
+        let wiggleInY = SKAction.scaleXBy(1.0, y: 1.1, duration: 0.1)
+        let wiggleOutY = SKAction.scaleXBy(1.0, y: 1.0/1.1 , duration: 0.1)
         let wiggle = SKAction.sequence([wiggleInX, wiggleOutX, wiggleInY, wiggleOutY])
         self.runAction(wiggle)
     }
@@ -92,7 +97,7 @@ class Circle : SKShapeNode
     {
         return UIColor(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1.0)
     }
-
+	
     func EatFeed(feed : FeedCircle)->Void
     {
         feed.removeFromParent();
