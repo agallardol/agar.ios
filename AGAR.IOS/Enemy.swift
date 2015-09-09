@@ -50,13 +50,13 @@ class Enemy : Circle
         self.physicsBody?.contactTestBitMask = GameTools.PhysicsCategory.Feed;
         self.physicsBody?.collisionBitMask = GameTools.PhysicsCategory.None;
         
-        self.enemyLabel = SKLabelNode();
+        self.enemyLabel = SKLabelNode(fontNamed:"Futura");
         self.enemyLabel!.name = "enemyLabel";
         self.enemyLabel!.text = "Enemy";
         self.enemyLabel!.fontSize = 25;
-        self.enemyLabel!.fontColor = SKColor(red: 236.0 / 255,
-            green: 206.0 / 255,
-            blue: 118.0 / 255,
+        self.enemyLabel!.fontColor = SKColor(red: 255.0 / 255,
+            green: 255.0 / 255,
+            blue: 255.0 / 255,
             alpha: 1.0);
         self.enemyLabel!.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center;
         self.enemyLabel!.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center;

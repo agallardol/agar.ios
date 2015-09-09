@@ -69,9 +69,9 @@ class MainMenu: SKScene {
         playButtonLabel.name = "playButtonLabel";
 
         playButtonLabel.fontSize = 25;
-        playButtonLabel.fontColor = SKColor(red: 236.0 / 255,
-            green: 206.0 / 255,
-            blue: 118.0 / 255,
+        playButtonLabel.fontColor = SKColor(red: 255.0 / 255,
+            green: 255.0 / 255,
+            blue: 255.0 / 255,
             alpha: 1.0);
         playButtonLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center;
         playButtonLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center;
@@ -86,7 +86,7 @@ class MainMenu: SKScene {
         tempCircle.strokeColor = SKColor(red: 236.0 / 255,
             green: 206.0 / 255,
             blue: 118.0 / 255,
-            alpha: 1.0);
+            alpha: 0.0);
         /*tempCircle.fillColor = SKColor(red: 86.0 / 255,
             green: 38.0 / 255,
             blue: 55.0 / 255,

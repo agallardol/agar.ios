@@ -41,13 +41,13 @@ class PlayerCircle : Circle
         self.physicsBody?.contactTestBitMask = GameTools.PhysicsCategory.Feed;
         self.physicsBody?.collisionBitMask = GameTools.PhysicsCategory.None;
         
-        self.playerLabel = SKLabelNode();
+        self.playerLabel = SKLabelNode(fontNamed:"Futura");
         self.playerLabel!.name = "playerLabel";
         self.playerLabel!.text = "Me";
-        self.playerLabel!.fontSize = 25;
-        self.playerLabel!.fontColor = SKColor(red: 236.0 / 255,
-            green: 206.0 / 255,
-            blue: 218.0 / 255,
+        self.playerLabel!.fontSize = 35;
+        self.playerLabel!.fontColor = SKColor(red: 255.0 / 255,
+            green: 255.0 / 255,
+            blue: 255.0 / 255,
             alpha: 1.0);
         self.playerLabel!.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center;
         self.playerLabel!.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center;

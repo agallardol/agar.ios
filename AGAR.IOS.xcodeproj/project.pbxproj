@@ -42,6 +42,7 @@
 		ACD2702D1BA088CB00B3802F /* satelliteL.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD2702C1BA088CB00B3802F /* satelliteL.png */; };
 		ACD2702F1BA08F7400B3802F /* Playing.sks in Resources */ = {isa = PBXBuildFile; fileRef = ACD2702E1BA08F7400B3802F /* Playing.sks */; };
 		ACD270311BA0978C00B3802F /* Background.sks in Resources */ = {isa = PBXBuildFile; fileRef = ACD270301BA0978B00B3802F /* Background.sks */; };
+		ACD270331BA0A5B000B3802F /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = ACD270321BA0A5B000B3802F /* Explosion.sks */; };
 		C611DE811B2FCDCE00B6F863 /* Playing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611DE801B2FCDCE00B6F863 /* Playing.swift */; };
 		C611DE831B2FD2D600B6F863 /* FeedCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611DE821B2FD2D600B6F863 /* FeedCircle.swift */; };
 		C638E9AF1B2E6BB5009451BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C638E9AE1B2E6BB5009451BC /* AppDelegate.swift */; };
@@ -103,6 +104,7 @@
 		ACD2702C1BA088CB00B3802F /* satelliteL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = satelliteL.png; sourceTree = "<group>"; };
 		ACD2702E1BA08F7400B3802F /* Playing.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Playing.sks; sourceTree = "<group>"; };
 		ACD270301BA0978B00B3802F /* Background.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Background.sks; sourceTree = "<group>"; };
+		ACD270321BA0A5B000B3802F /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
 		C611DE801B2FCDCE00B6F863 /* Playing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playing.swift; sourceTree = "<group>"; };
 		C611DE821B2FD2D600B6F863 /* FeedCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCircle.swift; sourceTree = "<group>"; };
 		C638E9A91B2E6BB5009451BC /* AGAR.IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGAR.IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +219,7 @@
 				6FE2536E1B9E1DC300E66E43 /* EndGameOverlay.swift */,
 				ACD2702E1BA08F7400B3802F /* Playing.sks */,
 				ACD270301BA0978B00B3802F /* Background.sks */,
+				ACD270321BA0A5B000B3802F /* Explosion.sks */,
 			);
 			path = AGAR.IOS;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				0A2D0B861BA0A3FA00A012AC /* sunDot@2x0.png in Resources */,
 				ACD270171BA0836B00B3802F /* blackAsteroidM.png in Resources */,
 				ACD270221BA0836B00B3802F /* purpleAsteroidL.png in Resources */,
+				ACD270331BA0A5B000B3802F /* Explosion.sks in Resources */,
 				ACD270181BA0836B00B3802F /* blackAsteroidS.png in Resources */,
 				0A2D0B811BA0A31B00A012AC /* sunDot@2x4.png in Resources */,
 				C638E9BA1B2E6BB5009451BC /* Images.xcassets in Resources */,
